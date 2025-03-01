@@ -14,15 +14,30 @@
 
 :root {
     --dark: #1A1A1A;
-    --white: #F2F2F2;
+    --light: #F2F2F2;
     --primary: #009929;
     --secundary: #252440;
 
     --dark-shadow: #1A1A1AB0;
+
+    --small-padding: 0.25rem;
+    --default-padding: 0.50rem;
+    --large-padding: 1rem;
+
+    --tiny-gap: 0.25rem;
+    --small-gap: 0.50rem;
+    --default-gap: 1rem;
+    --large-gap: 1.25rem;
+
+    --border-size: 0.1rem;
+
+    --font-family: 'Roboto', system-ui, sans-serif;
+    --font-size: 1rem;
 }
 
 * {
-    font-family: "Roboto", system-ui, sans-serif;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
