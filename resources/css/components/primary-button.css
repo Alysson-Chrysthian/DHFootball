@@ -5,4 +5,13 @@
     width: 100%;
     background-color: var(--primary);
     color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-button:hover {
+    filter: brightness(var(--hover-brightness));
 }

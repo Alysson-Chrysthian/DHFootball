@@ -7,5 +7,5 @@
     <button 
         type="{{ $type ?? 'submit' }}"
         class="secundary-button primary-button"
-    >{{ $value }}</button>
+    >{!! $value !!}</button>
 </div>

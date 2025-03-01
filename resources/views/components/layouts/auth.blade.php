@@ -3,5 +3,6 @@
 @endPushOnce
 
 <x-layouts.app>
-    {{ $slot }}
+    <div id="background"></div>
+    <div id="content">{{ $slot }}</div>
 </x-layouts>
