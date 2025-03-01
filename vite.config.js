@@ -16,10 +16,11 @@ export default defineConfig({
                 'resources/css/components/image-input.css',
                 'resources/css/components/primary-button.css',
                 'resources/css/components/secundary-button.css',
+                'resources/css/components/profile-label.css',
                 //layout scripts
                 'resources/js/app.js',
-                //component scripts
-                'resources/js/components/image-input.js',
+                //components scripts
+                'resources/js/components/profile-label.js',
             ],
             refresh: true,
         }),

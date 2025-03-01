@@ -1,0 +1,33 @@
+.profile-label-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-label-container * {
+    cursor: pointer;
+}
+
+.profile-label-container svg,
+.profile-label-container path {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    fill: var(--light);
+    stroke-width: var(--border-size);
+    stroke: var(--secundary);
+}
+
+.profile-label-container img {
+    width: 300px;
+    height: 300px;
+    padding: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile-label-container:hover * {
+    filter: brightness(var(--hover-brightness));
+}

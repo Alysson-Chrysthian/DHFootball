@@ -3,6 +3,10 @@
 @endPushOnce
 
 <div class="input-container">
+    @if (isset($label))
+        <label for="input">{{ $label }}</label>
+    @endif
+
     <select 
         class="input" 
         @if (isset($model))
@@ -10,7 +14,7 @@
         @endif
     >
         @if (isset($placeholder))
-            <option disabled selected>{{ $placeholder }}</option>
+            <option selected>{{ $placeholder }}</option>
         @endif
 
         @foreach ($options as $value => $option)
