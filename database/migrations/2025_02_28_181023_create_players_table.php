@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar');
             $table->timestamp('birthday');
+            $table->timestamp('email_verified_at');
             $table->unsignedBigInteger('position_id');
             $table->unsignedBigInteger('video_id');
             $table->foreign('position_id')

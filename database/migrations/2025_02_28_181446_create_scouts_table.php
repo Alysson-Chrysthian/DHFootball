@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('avatar');
+            $table->timestamp('email_verified_at');
             $table->unsignedBigInteger('club_id');
             $table->foreign('club_id')
                 ->references('id')
