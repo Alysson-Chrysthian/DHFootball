@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Auth\Player;
+namespace App\Livewire\Auth\Scout;
 
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -13,8 +13,8 @@ class Login extends Component
     public function rules() 
     {
         return [
-            'email' => 'required|email|exists:players',
-            'password' => 'required|string|between:8,16',
+            'email' => 'required|email|exists:scouts',
+            'password' => 'required|string|between:8,16'
         ];
     }
 
@@ -38,6 +38,6 @@ class Login extends Component
     #[Layout('components.layouts.auth')]
     public function render()
     {
-        return view('livewire.auth.player.login');
+        return view('livewire.auth.scout.login');
     }
 }
