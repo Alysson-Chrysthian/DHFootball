@@ -1,0 +1,17 @@
+.text-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tiny-gap);
+}
+
+.text-input {
+    padding: var(--default-padding);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    outline: none;
+    width: 100%;
+}
+
+.text-input::placeholder {
+    color: var(--dark-shadow);
+}

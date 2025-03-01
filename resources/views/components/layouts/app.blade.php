@@ -9,9 +9,7 @@
         {{-- styles --}}
         @vite('resources/css/app.css')
 
-        @if (isset($styles))
-            {{ $styles }}
-        @endif
+        @stack('styles')
 
         @livewireStyles
     </head>
@@ -21,10 +19,9 @@
         </main>
 
         {{-- scripts --}}
+        @vite('resources/js/app.js')
         
-        @if (isset($scripts))
-            {{ $scripts }}
-        @endif
+        @stack('scripts')
 
         @livewireScripts
     </body>

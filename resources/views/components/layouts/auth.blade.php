@@ -1,6 +1,7 @@
-<x-slot:styles>
+@pushOnce('styles')
     @vite('resources/css/auth.css')
-</x-slot>
+@endPushOnce
+
 <x-layouts.app>
     {{ $slot }}
 </x-layouts>

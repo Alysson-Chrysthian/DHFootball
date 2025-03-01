@@ -1,6 +1,7 @@
-<x-slot:styles>
+@pushOnce('styles')
     @vite('resources/css/player.css')
-</slot>
+@endPushOnce
+
 <x-layouts.app>
     {{ $slot }}
 </x-layouts>

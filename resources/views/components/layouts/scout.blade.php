@@ -1,6 +1,7 @@
-<x-slot:styles>
+@pushOnce('styles')
     @vite('resources/css/scout.css')
-</x-slot>
+@endpushonce
+
 <x-layouts.app>
     {{ $slot }}
 </x-layouts>
