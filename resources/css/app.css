@@ -17,6 +17,7 @@
     --light: #F2F2F2;
     --primary: #009929;
     --secundary: #252440;
+    --error: #ff6060;
 
     --dark-shadow: #1A1A1AC0;
 
@@ -52,6 +53,10 @@
     margin: 0px;
     box-sizing: border-box;
     color: var(--dark);
+}
+
+.error {
+    color: var(--error);
 }
 
 h1 {

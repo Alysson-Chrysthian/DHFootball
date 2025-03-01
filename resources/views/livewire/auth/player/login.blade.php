@@ -6,15 +6,27 @@
 
     <h1>Login</h1>
     
-    <form>
-        <livewire:components.text-input 
-            placeholder="Insira um email cadastrado"
-            label="Email"
-        />
-        <livewire:components.text-input 
-            placeholder="Insira sua senha"
-            label="Senha"
-        />
+    <form wire:submit="login">
+        <div>
+            @error('email')
+                <span class="error">{{ $message }}</span>
+            @enderror
+            <livewire:components.text-input
+                placeholder="Insira um email cadastrado"
+                model="email"
+                label="Email"
+            />
+        </div>
+        <div>
+            @error('password')
+                <span class="error">{{ $message }}</span>
+            @enderror
+            <livewire:components.text-input
+                placeholder="Insira sua senha"
+                model="password"
+                label="Senha"
+            />
+        </div>
         <livewire:components.primary-button 
             value="Entrar no DHFootball {{ svg('ri-arrow-right-double-line') }}"
         />
