@@ -8,6 +8,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/css/auth.css',
+                'resources/css/player.css',
+                'resources/css/scout.css',
                 'resources/js/app.js',
             ],
             refresh: true,
