@@ -32,7 +32,7 @@
     --default-gap: 1rem;
     --large-gap: 1.25rem;
 
-    --border-size: 0.1rem;
+    --border-size: 0.050rem;
     --border-radius: 0.50rem;
 
     --font-family: 'Roboto', system-ui, sans-serif;
@@ -66,6 +66,7 @@ h1 {
 
 svg {
     width: var(--icon-size);
+    stroke-width: var(--border-size);
 }
 
 html, body {

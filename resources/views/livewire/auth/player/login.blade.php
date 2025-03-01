@@ -1,4 +1,4 @@
-<div id="login">
+<div>
 
     <h1>Login</h1>
     
@@ -26,9 +26,12 @@
         <livewire:components.primary-button 
             value="Entrar no DHFootball {{ svg('ri-arrow-right-double-line') }}"
         />
-        <livewire:components.primary-button
-            value="Cadastrar-se como jogador {{ svg('bx-link-external') }}"
-        />
+        <a href="{{ route('auth.player.register') }}">
+            <livewire:components.primary-button
+                type="button"
+                value="Cadastrar-se como jogador {{ svg('bx-link-external') }}"
+            />
+        </a>
     </form>
 
     <div class="link-group">

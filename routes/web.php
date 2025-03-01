@@ -16,6 +16,8 @@ Route::middleware([
 
                 Route::get('/login', App\Livewire\Auth\Player\Login::class)
                     ->name('login');
+                Route::get('/register', App\Livewire\Auth\Player\Register::class)
+                    ->name('register');
 
             });
 

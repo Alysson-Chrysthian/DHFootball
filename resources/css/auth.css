@@ -9,10 +9,6 @@ main {
     flex-direction: column;
 }
 
-input {
-    color: var(--dark);
-}
-
 #background {
     width: 100%;
     height: 100%;
@@ -45,15 +41,11 @@ form {
     gap: var(--default-gap);
 }
 
-h1 {
-    text-align: center;
-}
-
 a {
     position: relative;
 }
 
-a::before {
+.link-group a::before {
     content: "";
     width: 0px;
     height: 2px;
@@ -63,7 +55,10 @@ a::before {
     bottom: 0px;
 }
 
-a:hover::before {
+.link-group a:hover::before {
     width: 100%;
 }
 
+h1 {
+    text-align: center;
+}

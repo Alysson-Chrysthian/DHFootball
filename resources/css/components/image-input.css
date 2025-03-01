@@ -1,0 +1,45 @@
+.image-input-container label {
+    text-align: center;
+}
+
+.image-input {
+    display: none;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.image-container * {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-container svg {
+    width: 300px;
+    height: 300px;
+}
+
+.image-container path:nth-child(1) {
+    fill: var(--light);
+    opacity: 1;
+}
+.image-container path:nth-child(2) {
+    fill: var(--secundary);
+}
+
+.image-container img {
+    padding: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+.image-container:hover * {
+    filter: brightness(var(--hover-brightness));
+}

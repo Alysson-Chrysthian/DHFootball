@@ -1,14 +1,14 @@
 @pushOnce('styles')
-    @vite('resources/css/components/text-input.css')
+    @vite('resources/css/components/input.css')
 @endpushonce
 
-<div class="text-input-container">
+<div class="input-container">
     @if (isset($label)) 
-        <label for="text-input">{{ $label }}</label>
+        <label for="input">{{ $label }}</label>
     @endif
     <input 
         type="text" 
-        class="text-input" 
+        class="input" 
         placeholder="{{ $placeholder ?? '' }}"
         @if (isset($model))
             wire:model.live="$parent.{{ $model }}"
