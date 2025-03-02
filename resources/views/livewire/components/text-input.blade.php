@@ -4,7 +4,7 @@
 
 <div class="input-container">
     @if (isset($label)) 
-        <label for="input">{{ $label }}</label>
+        <label>{{ $label }}</label>
     @endif
     <input 
         type="text" 
