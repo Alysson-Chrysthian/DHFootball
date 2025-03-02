@@ -86,7 +86,7 @@
             </a>
             <div class="link-group">
                 <a href="{{ route('auth.player.login') }}">Entrar como jogador</a>
-                <a href="#">Esqueci minha senha</a>
+                <a href="{{ route('auth.reset-password.request') }}">Esqueci minha senha</a>
             </div>
         @endif
     </form>

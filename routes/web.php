@@ -32,4 +32,13 @@ Route::middleware([
 
             });
 
+        Route::prefix('/reset-password')
+            ->name('reset-password.')
+            ->group(function () {
+
+                Route::get('/request', App\Livewire\Auth\Password\RequestResetPasswordLink::class)
+                    ->name('request');
+
+            });
+
     });

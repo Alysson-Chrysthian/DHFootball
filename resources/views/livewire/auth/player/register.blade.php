@@ -95,7 +95,7 @@
 
             <div class="link-group">
                 <a href="{{ route('auth.scout.login') }}">Entrar como olheiro</a>
-                <a href="#">Esqueci minha senha</a>
+                <a href="{{ route('auth.reset-password.request') }}">Esqueci minha senha</a>
             </div>
         @endif
     
