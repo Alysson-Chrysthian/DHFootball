@@ -9,6 +9,7 @@ class ProfileLabel extends Component
 {
     #[Reactive]
     public $source;
+    public $label;
 
     public function render()
     {

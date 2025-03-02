@@ -3,11 +3,16 @@
 @endPushOnce
 
 <div class="profile-label-container">
-    @if (isset($source))
-        <img src="{{ $source }}">
-    @else
-        {{ svg('iconsax-bul-profile-circle') }}
+    @if (isset($label))
+        <label>{{ $label }}</label>
     @endif
+    <div>
+        @if (isset($source))
+            <img src="{{ $source }}">
+        @else
+            {{ svg('iconsax-bul-profile-circle') }}
+        @endif
+    </div>
 </div>
 
 @pushOnce('scripts')

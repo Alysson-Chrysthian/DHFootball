@@ -72,8 +72,8 @@
                 <span class="error">{{ $message }}</span>
             @enderror   
             <div>
-                <label>Para finalizar selecione uma foto de perfil</label>
                 <livewire:components.profile-label
+                    label="Para finalizar selecione uma foto de perfil"
                     :source="$errors->has('profile') ? null : ($profile ? $profile->temporaryUrl() : null)"
                 />
                 <input
