@@ -13,7 +13,6 @@ export default defineConfig({
                 'resources/css/scout.css',
                 //component styles
                 'resources/css/components/input.css',
-                'resources/css/components/image-input.css',
                 'resources/css/components/primary-button.css',
                 'resources/css/components/secundary-button.css',
                 'resources/css/components/profile-label.css',
