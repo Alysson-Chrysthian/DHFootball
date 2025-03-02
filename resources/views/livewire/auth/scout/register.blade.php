@@ -63,15 +63,17 @@
             @error('profile')
                 <span class="error">{{ $message }}</span>
             @enderror
-            <livewire:components.profile-label
-                :source="$errors->has('profile') ? null : ($profile ? $profile->temporaryUrl() : null)"
-                label="Para finalizar selecione uma foto de perfil"
-            />
-            <input 
-                type="file" 
-                class="profile-input"
-                wire:model.live="profile"    
-            />
+            <div>
+                <livewire:components.profile-label
+                    :source="$errors->has('profile') ? null : ($profile ? $profile->temporaryUrl() : null)"
+                    label="Para finalizar selecione uma foto de perfil"
+                />
+                <input
+                    type="file"
+                    class="profile-input"
+                    wire:model.live="profile"
+                />
+            </div>
         </div>
 
         <livewire:components.primary-button
