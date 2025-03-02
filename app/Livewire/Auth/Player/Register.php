@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth\Player;
 
 use App\Models\Position;
+use Exception;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -63,7 +64,14 @@ class Register extends Component
 
     public function register()
     {
-        $this->validate();
+        try {
+            $this->validate();
+        } catch (Exception $e) {
+            return redirect()->route('auth.player.register')
+                ->with([
+                    'message' => __('auth.failed'),
+                ]);
+        }
     }
 
     public function validateStepField() 
@@ -89,11 +97,11 @@ class Register extends Component
     #[Layout('components.layouts.auth')]
     public function render()
     {
-        $positions = Position::all();
-        $positionsOptions = $positions->pluck('name', 'id')->all();
+        $positions = Position::all()->pluck('name', 'id')
+            ->all();
 
         return view('livewire.auth.player.register', [
-            'positions' => $positionsOptions,
+            'positions' => $positions,
         ]);
     }
 }

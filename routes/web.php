@@ -27,6 +27,8 @@ Route::middleware([
 
                 Route::get('/login', App\Livewire\Auth\Scout\Login::class)
                     ->name('login');
+                Route::get('/register', App\Livewire\Auth\Scout\Register::class)
+                    ->name('register');
 
             });
 

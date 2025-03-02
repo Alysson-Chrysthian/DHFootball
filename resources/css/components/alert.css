@@ -1,0 +1,7 @@
+.alert-container {
+    text-align: center;
+    background-color: var(--error);
+    padding: var(--default-padding);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}

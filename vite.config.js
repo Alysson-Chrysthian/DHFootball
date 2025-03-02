@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/css/components/primary-button.css',
                 'resources/css/components/secundary-button.css',
                 'resources/css/components/profile-label.css',
+                'resources/css/components/alert.css',
                 //layout scripts
                 'resources/js/app.js',
                 //components scripts

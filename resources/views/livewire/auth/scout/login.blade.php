@@ -26,9 +26,12 @@
         <livewire:components.primary-button
             value="Entrar no DHFootball {{ svg('ri-arrow-right-double-line') }}"
         />
-        <livewire:components.primary-button
-            value="Cadastrar-se como olheiro {{ svg('bx-link-external') }}"
-        />
+        <a href="{{ route('auth.scout.register') }}">    
+            <livewire:components.primary-button
+                type="button"
+                value="Cadastrar-se como olheiro {{ svg('bx-link-external') }}"
+            />
+        </a>
     </form>
 
     <div class="link-group">
