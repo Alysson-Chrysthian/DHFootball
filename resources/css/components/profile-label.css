@@ -31,3 +31,7 @@
 .profile-label-container:hover * {
     filter: brightness(var(--hover-brightness));
 }
+
+.profile-input {
+    display: none;
+}
