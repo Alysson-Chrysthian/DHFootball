@@ -78,7 +78,7 @@
                 />
                 <input
                     type="file"
-                    class="file-input"
+                    class="profile-input"
                     wire:model.live="profile"
                 />
             </div>
