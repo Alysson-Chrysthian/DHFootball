@@ -64,6 +64,11 @@ h1 {
     font-weight: 500;
 }
 
+h2 {
+    font-size: var(--font-large-size);
+    font-weight: 500;
+}
+
 svg {
     width: var(--icon-size);
     stroke-width: var(--border-size);

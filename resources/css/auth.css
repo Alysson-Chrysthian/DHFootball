@@ -63,3 +63,9 @@ a {
 h1 {
     text-align: center;
 }
+
+.step-count {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}

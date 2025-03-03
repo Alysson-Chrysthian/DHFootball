@@ -1,4 +1,8 @@
 <div>
+
+    @if ($step > 0)
+        <h2 class="step-count">Passo {{ $step }}/5</h2>
+    @endif
     
     <h1>Registro</h1>
 

@@ -1,5 +1,9 @@
 <div>
 
+    @if ($step > 0)
+        <h2 class="step-count">Passo {{ $step }}/4</h2>
+    @endif    
+
     <h1>Registro</h1>
 
     <form wire:submit="nextStep">
