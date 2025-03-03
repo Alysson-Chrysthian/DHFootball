@@ -19,7 +19,7 @@ Abaixo, segue os diagramas para melhor entendimento e visualização das entidad
 
 
 ## Arquitetura
-A tecnologia escolhida para o desenvolvimento do app foi o laravel 11x, para fazer o build do projeto estamos usando o sail para manipular containers docker com mais praticidade, para auxiliar no frontend estamos utilizando o livewire para poder usurfruir das vantagens de uma SPA em uma aplicação monolitica feita em laravel, o banco de dados escolhido foi o MySQL por ser o padrão utilizado pela instituição que requisitou o projeto e para websocket foi utilizado o reverb, pela preferencia de uma solução self hosted, para estilização escolhemos o tailwind, por ser leve, costumizavel e ja vim configurado com o laravel 11, e para fazer o carregamento dos estilos e os scripts esta sendo utilizado o vite, pelo mesmo motivo do tailwind: ja vem configurado com o laravel
+A tecnologia escolhida para o desenvolvimento do app foi o laravel 12x, para fazer o build do projeto estamos usando o sail para manipular containers docker com mais praticidade, para auxiliar no frontend estamos utilizando o livewire para poder usurfruir das vantagens de uma SPA em uma aplicação monolitica feita em laravel, o banco de dados escolhido foi o MySQL por ser o padrão utilizado pela instituição que requisitou o projeto e para websocket foi utilizado o reverb, pela preferencia de uma solução self hosted, para estilização escolhemos o tailwind, por ser leve, costumizavel e ja vim configurado com o laravel 11, e para fazer o carregamento dos estilos e os scripts esta sendo utilizado o vite, pelo mesmo motivo do tailwind: ja vem configurado com o laravel
 
 ## Design
 Antes de partimos para falar do design das telas de fato é importante setarmos aqui nossa paleta de cores:
