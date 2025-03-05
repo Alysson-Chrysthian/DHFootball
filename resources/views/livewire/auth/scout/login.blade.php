@@ -5,30 +5,30 @@
     <form wire:submit="login">
         <x-text-input
             placeholder="Digite seu email"
-            wire:model.live="email"    
+            wire:model.live="email"
             label="Email"
             id="email-input"
         />
 
-        <x-text-input 
+        <x-text-input
             placeholder="Digite sua senha"
             wire:model.live="password"
             label="Senha"
             id="password-input"
         />
 
-        <x-button 
+        <x-button
             type="submit"
             wire:target="login"
         >
             Entrar no DHFootball
         </x-button>
-        
-        <x-button>Registrar-se como jogador</x-button>
+
+        <x-button>Registrar-se como olheiro</x-button>
     </form>
-    
+
     <div class="link-group">
-        <a href="{{ route('auth.scout.login') }}" wire:navigate>Entrar como olheiro</a>
+        <a href="{{ route('auth.player.login') }}" wire:navigate>Entrar como jogador</a>
         <a href="#" wire:navigate>Esqueci minha senha</a>
     </div>
 

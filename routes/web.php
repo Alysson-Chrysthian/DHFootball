@@ -10,3 +10,12 @@ Route::prefix('/auth/player')
             ->name('login');
 
     });
+
+Route::prefix('/auth/scout')
+    ->name('auth.scout.')
+    ->group(function () {
+
+        Route::get('/login', App\Livewire\Auth\Scout\Login::class)
+            ->name('login');
+
+    });
