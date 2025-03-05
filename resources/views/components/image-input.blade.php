@@ -7,7 +7,7 @@
     flex flex-col 
 ">   
 
-    <label for="{{ $attributes->get('id') }}">
+    <label for="{{ $attributes->get('id') ?? 'image-input' }}">
         @if ($source)
             <figure class="
                 avatar-icon
@@ -33,6 +33,7 @@
             $attributes->merge([
                 'type' => 'file',
                 'class' => 'avatar-input hidden'
+                'id' => $attributes->get('id') ?? 'image-input'    
             ])
         }}
     >
