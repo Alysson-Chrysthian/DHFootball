@@ -5,30 +5,28 @@
 <div class="
     image-input
     flex flex-col 
-">
-    @if ($label)
-        <label for="{{ $attributes->get('id') }}" class="self-center">{{ $label }}</label>
-    @endif
-        
+">   
 
-    @if ($source)
-        <figure class="
-            avatar-icon
-            hover:brightness-40
-            cursor-pointer
-        ">
-            <img src="{{ $source }}" />
-        </figure>
-    @else
-        <x-iconsax-bul-profile-circle 
-            class="
+    <label for="{{ $attributes->get('id') }}">
+        @if ($source)
+            <figure class="
                 avatar-icon
-                fill-light stroke-secundary
                 hover:brightness-40
                 cursor-pointer
-            "
-        />
-    @endif
+            ">
+                <img src="{{ $source }}" />
+            </figure>
+        @else
+            <x-iconsax-bul-profile-circle
+                class="
+                    avatar-icon
+                    fill-light stroke-secundary
+                    hover:brightness-40
+                    cursor-pointer
+                "
+            />
+        @endif
+    </label>
 
     <input  
         {{
@@ -39,7 +37,3 @@
         }}
     >
 </div>
-
-@pushOnce('scripts')
-    @vite('resources/js/components/ImageInput.js')
-@endPushOnce

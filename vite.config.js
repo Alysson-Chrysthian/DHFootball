@@ -15,8 +15,6 @@ export default defineConfig({
                 'resources/css/components/image-input.css',
                 //layouts scripts 
                 'resources/js/app.js',
-                //components scripts 
-                'resources/js/ImageInput.js'
             ],
             refresh: true,
         }),
