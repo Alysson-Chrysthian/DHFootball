@@ -6,16 +6,51 @@
     background-image: url('/resources/img/auth/background.jpg');
     background-position: center center;
     background-size: cover;
-    filter: brightness(var(--brightness-low));
+    filter: brightness(0.4);
     z-index: -1;
 }
 
 #content {
     height: 100%;
-    width: 100%;
+    width: 310px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--light);
+    color: var(--color-light);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+    margin: var(--spacing-large) 0px;
+}
+
+.link-group {
+    display: flex;
+    gap: var(--spacing-large);
+}
+
+.link-group a {
+    position: relative;
+}
+
+.link-group a::before {
+    content: "";
+    width: 0px;
+    height: 2px;
+    background-color: var(--color-light);
+    position: absolute;
+    bottom: 0px;
+    transition: 0.5s all;
+}
+
+.link-group a:hover::before {
+    width: 100%;
 }
