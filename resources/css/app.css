@@ -8,31 +8,31 @@
 @source "../**/*.vue";
 
 @theme {
-    --color-dark: #1a1a1a;
-    --color-light: #f2f2f2;
-    --color-primary: #007729;
-    --color-secundary: #252440;
-    --color-error: #aa2030;
+    --color-dark: var(--color-dark);
+    --color-light: var(--color-light);
+    --color-primary: var(--color-primary);
+    --color-secundary: var(--color-secundary);
+    --color-error: var(--color-error);
 
-    --spacing-tiny: 0.25rem;
-    --spacing-small: 0.50rem;
-    --spacing-normal: 0.75rem;
-    --spacing-large: 1rem;
-    --spacing-very-large: 1.25rem;
+    --spacing-tiny: var(--spacing-tiny);
+    --spacing-small: var(--spacing-small);
+    --spacing-normal: var(--spacing-normal);
+    --spacing-large: var(--spacing-large);
+    --spacing-very-large: var(--spacing-very-large);
 
-    --font-sans: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-sans: var(--font-sans);
 
-    --radius-default: 0.50rem;
+    --radius-default: var(--radis-default);
 
-    --shadow-default: 0px 0px 8px 4px #1a1a1aa0;
+    --shadow-default: var(--shadow-default);
 
-    --text-normal: 1rem;
+    --text-normal: var(--text-normal);
 
-    --text-sub-heading: 2rem;
-    --text-sub-heading--font-weight: 500;
+    --text-sub-heading: var(--text-sub-heading);
+    --text-sub-heading--font-weight: var(--text-sub-heading--font-weight);
 
-    --text-heading: 4rem;
-    --text-heading--font-weight: bold;
+    --text-heading: var(--text-heading);
+    --text-heading--font-weight: var(--text-heading--font-weight);
 }
 
 :root {
@@ -40,7 +40,7 @@
     --color-light: #f2f2f2;
     --color-primary: #007729;
     --color-secundary: #252440;
-    --color-error: #aa2030;
+    --color-error: #a83643;
 
     --spacing-tiny: 0.25rem;
     --spacing-small: 0.50rem;

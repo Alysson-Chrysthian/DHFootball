@@ -1,25 +1,24 @@
-<div class="flex flex-col">
+<div>
     @error($attributes->get('wire:model.live'))
         <span class="error">{{ $message }}</span>
     @enderror
 
     @if ($label)
         <label for="{{ $attributes->get('id') }}">{{ $label }}</label>
-    @endif    
-    
+    @endif
+
     <input 
-        {{ 
+        {{
             $attributes->merge([
-                'type' => 'text',
+                'type' => 'date',
                 'class' => '
                     p-small
                     rounded-default
                     shadow-default
-                    outline-none
+                    w-full
                     bg-light text-dark
-                    placeholder:text-dark
                 '
             ])
-        }} 
+        }}
     />
 </div>
