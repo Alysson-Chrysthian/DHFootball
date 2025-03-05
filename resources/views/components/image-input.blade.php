@@ -32,7 +32,7 @@
         {{
             $attributes->merge([
                 'type' => 'file',
-                'class' => 'avatar-input hidden'
+                'class' => 'avatar-input hidden',
                 'id' => $attributes->get('id') ?? 'image-input'    
             ])
         }}
