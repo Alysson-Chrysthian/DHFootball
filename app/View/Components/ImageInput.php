@@ -6,13 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class DateInput extends Component
+class ImageInput extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
         public $label = null,
+        public $source = null,
     )
     {}
 
@@ -21,6 +22,6 @@ class DateInput extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.date-input');
+        return view('components.image-input');
     }
 }

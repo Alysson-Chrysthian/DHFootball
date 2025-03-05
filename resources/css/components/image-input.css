@@ -1,0 +1,20 @@
+.image-input .avatar-icon path {
+    opacity: 100;
+}
+
+.image-input figure {
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    height: 250px;
+    width: 250px;
+    margin: auto;
+}
+
+.image-input svg,
+.image-input path {
+    height: 300px;
+    width: 350px;
+    margin: auto;
+}

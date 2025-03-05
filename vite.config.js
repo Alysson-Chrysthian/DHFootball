@@ -11,8 +11,12 @@ export default defineConfig({
                 'resources/css/auth.css',
                 'resources/css/player.css',
                 'resources/css/scout.css',
+                //components styles
+                'resources/css/components/image-input.css',
                 //layouts scripts 
-                'resources/js/app.js'
+                'resources/js/app.js',
+                //components scripts 
+                'resources/js/ImageInput.js'
             ],
             refresh: true,
         }),
