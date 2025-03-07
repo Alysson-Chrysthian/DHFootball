@@ -2,7 +2,7 @@
 
     <h1>Login</h1>
 
-    <x-form.login />
+    <livewire:form.login guard="players" />
 
     <x-button>Registrar-se como jogador</x-button>
     

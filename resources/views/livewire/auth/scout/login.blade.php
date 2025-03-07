@@ -2,7 +2,7 @@
 
     <h1>Login</h1>
 
-    <x-form.login />
+    <livewire:form.login guard="scouts" />
 
     <x-button>Registrar-se como olheiro</x-button>
 
