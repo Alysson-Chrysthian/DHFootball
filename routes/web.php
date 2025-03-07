@@ -6,7 +6,7 @@ Route::prefix('/auth/player')
     ->name('auth.player.')
     ->group(function () {
 
-        Route::get('/login', App\Livewire\Auth\Player\Login::class)
+        Route::get('/login', App\Livewire\Page\Auth\Player\Login::class)
             ->name('login');
 
     });
@@ -15,7 +15,7 @@ Route::prefix('/auth/scout')
     ->name('auth.scout.')
     ->group(function () {
 
-        Route::get('/login', App\Livewire\Auth\Scout\Login::class)
+        Route::get('/login', App\Livewire\Page\Auth\Scout\Login::class)
             ->name('login');
 
     });

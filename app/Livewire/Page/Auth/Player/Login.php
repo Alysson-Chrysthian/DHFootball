@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Auth\Player;
+namespace App\Livewire\Page\Auth\Player;
 
 use App\Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -10,6 +10,6 @@ class Login extends Component
     #[Layout('components.layouts.auth')]
     public function render()
     {
-        return view('livewire.auth.player.login');
+        return view('livewire.page.auth.player.login');
     }
 }
