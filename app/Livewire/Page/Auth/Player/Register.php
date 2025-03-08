@@ -89,6 +89,7 @@ class Register extends Component
                 route('auth.player.register'),
                 true
             );
+            return;
         }
 
         $avatar = null;
