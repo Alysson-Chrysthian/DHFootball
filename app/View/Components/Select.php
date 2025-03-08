@@ -13,6 +13,7 @@ class Select extends Component
      */
     public function __construct(
         public $label = null,
+        public $placeholder = null,
     )
     {}
 

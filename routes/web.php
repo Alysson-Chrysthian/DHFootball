@@ -9,6 +9,9 @@ Route::prefix('/auth/player')
         Route::get('/login', App\Livewire\Page\Auth\Player\Login::class)
             ->name('login');
 
+        Route::get('/register', App\Livewire\Page\Auth\Player\Register::class)
+            ->name('register');
+
     });
 
 Route::prefix('/auth/scout')
@@ -18,4 +21,6 @@ Route::prefix('/auth/scout')
         Route::get('/login', App\Livewire\Page\Auth\Scout\Login::class)
             ->name('login');
 
+        Route::get('/register', App\Livewire\Page\Auth\Scout\Register::class)
+            ->name('register');
     });

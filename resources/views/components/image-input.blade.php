@@ -5,6 +5,7 @@
 <div class="
     image-input
     flex flex-col 
+    {{ $attributes->get('class') }}
 ">   
 
     <label for="{{ $attributes->get('id') ?? 'image-input' }}">

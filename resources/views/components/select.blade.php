@@ -1,4 +1,4 @@
-<div>
+<div class="flex flex-col {{ $attributes->get('class') }}">
     @error($attributes->get('wire:model.live'))
         <span class="error">{{ $message }}</span> 
     @enderror
@@ -21,6 +21,9 @@
             ])
         }}
     >
+        @if ($placeholder)
+            <option>{{ $placeholder }}</option>
+        @endif
         {{ $slot ?? '' }}
     </select>
 </div>

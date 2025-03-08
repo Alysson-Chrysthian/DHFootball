@@ -1,4 +1,4 @@
-<div class="flex flex-col">
+<div class="flex flex-col {{ $attributes->get('class') }}">
     @error($attributes->get('wire:model.live'))
         <span class="error">{{ $message }}</span>
     @enderror

@@ -13,7 +13,7 @@ class Login extends Component
     {
         return [
             'email' => ['required', 'email', 'exists:' . $this->guard],
-            'password' => ['required', 'between:8,16'],
+            'password' => ['required', 'string', 'between:8,16'],
         ];
     }
 

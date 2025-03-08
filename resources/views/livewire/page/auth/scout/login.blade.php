@@ -4,7 +4,9 @@
 
     <livewire:form.login guard="scouts" />
 
-    <x-button>Registrar-se como olheiro</x-button>
+    <a href="{{ route('auth.scout.register') }}" wire:navigate>
+        <x-button>Registrar-se como olheiro</x-button>
+    </a>
 
     <div class="link-group">
         <a href="{{ route('auth.player.login') }}" wire:navigate>Entrar como jogador</a>
