@@ -2,10 +2,14 @@
 
 namespace App\Livewire\Page\Auth\Player;
 
+use App\Enums\Role;
 use App\Livewire\Component;
 use App\Livewire\Trait\WithMultiStepForm;
+use App\Models\Player;
 use App\Models\Position;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
@@ -86,6 +90,28 @@ class Register extends Component
                 true
             );
         }
+
+        $avatar = null;
+
+        if ($this->avatar)
+            $avatar = $this->avatar->store(path: 'avatars');
+
+        $player = new Player;
+    
+        $player->email = $this->email;
+        $player->name = $this->name;
+        $player->birthday = $this->birthday;
+        $player->password = Hash::make($this->password);
+        $player->position_id = $this->position;
+        $player->avatar = $avatar;
+
+        $player->save();
+
+        Auth::guard(Role::PLAYER->value)->login($player);
+        return $this->redirect(
+            route('auth.player.verification.notice'), 
+            true
+        );
     }
 
     #[Layout('components.layouts.auth')]
