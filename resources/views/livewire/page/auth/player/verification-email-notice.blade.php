@@ -5,6 +5,9 @@
     <a href="https://mail.google.com" target="_blank">
         <x-button>Ir para minha caixa de entrada</x-button>
     </a>
-    <x-button>Reenviar email de verificação</x-button>
+    <x-button
+        wire:click="resend"
+        wire:target="resend"
+    >Reenviar email de verificação</x-button>
 
 </div>

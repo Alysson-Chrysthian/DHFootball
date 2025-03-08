@@ -7,6 +7,9 @@ use Livewire\Component;
 
 class VerificationEmailNotice extends Component
 {
+    public function resend()
+    {}
+
     #[Layout('components.layouts.auth')]
     public function render()
     {

@@ -66,7 +66,7 @@
 
     <div class="link-group">
         <a href="{{ route('auth.player.login') }}" wire:navigate>Entrar como jogador</a>
-        <a href="#" wire:navigate>Esqueci minha senha</a>
+        <a href="{{ route('auth.password.request') }}" wire:navigate>Esqueci minha senha</a>
     </div>
 
 </div>

@@ -29,3 +29,12 @@ Route::prefix('/auth/scout')
         Route::get('/verify-email', App\Livewire\Page\Auth\Scout\VerificationEmailNotice::class)
             ->name('verification.notice');
     });
+
+Route::prefix('/auth/forgot-password')
+    ->name('auth.password.')
+    ->group(function () {
+
+        Route::get('/', App\Livewire\Page\Auth\ForgotPasswordRequest::class)
+            ->name('request');
+
+    });

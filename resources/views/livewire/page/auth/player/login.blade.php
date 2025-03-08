@@ -10,7 +10,7 @@
     
     <div class="link-group">
         <a href="{{ route('auth.scout.login') }}" wire:navigate>Entrar como olheiro</a>
-        <a href="#" wire:navigate>Esqueci minha senha</a>
+        <a href="{{ route('auth.password.request') }}" wire:navigate>Esqueci minha senha</a>
     </div>
 
 </div>
