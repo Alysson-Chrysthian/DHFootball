@@ -13,8 +13,8 @@ class ForgotPasswordRequest extends Component
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'role' => 'required|in:' . implode(',', [Role::PLAYER->value, Role::SCOUT->value]),
+            'email' => ['required', 'email'],
+            'role' => ['required', 'in:' . implode(',', [Role::PLAYER->value, Role::SCOUT->value])],
         ];
     }
 

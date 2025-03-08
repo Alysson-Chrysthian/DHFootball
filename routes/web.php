@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+Route::get('/login', function () {
+    throw new NotFoundHttpException();
+})
+    ->name('login');
 
 Route::prefix('/auth/player')
     ->name('auth.player.')
@@ -13,7 +19,12 @@ Route::prefix('/auth/player')
             ->name('register');
 
         Route::get('/verify-email', App\Livewire\Page\Auth\Player\VerificationEmailNotice::class)
+            ->middleware('auth:players')
             ->name('verification.notice');
+
+        Route::get('/forgot-password/{id}/{hash}', App\Livewire\Page\Auth\Player\ResetPassword::class)
+            ->middleware('guest:players')
+            ->name('password.reset');
     });
 
 Route::prefix('/auth/scout')
@@ -27,7 +38,12 @@ Route::prefix('/auth/scout')
             ->name('register');
 
         Route::get('/verify-email', App\Livewire\Page\Auth\Scout\VerificationEmailNotice::class)
+            ->middleware('auth:scouts')
             ->name('verification.notice');
+        
+        Route::get('/forgot-password/{id}/{hash}', App\Livewire\Page\Auth\Scout\ResetPassword::class)
+            ->middleware('guest:scouts')
+            ->name('password.reset');
     });
 
 Route::prefix('/auth/forgot-password')

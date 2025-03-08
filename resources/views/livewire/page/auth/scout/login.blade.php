@@ -2,7 +2,7 @@
 
     <h1>Login</h1>
 
-    <livewire:form.login guard="scouts" />
+    <livewire:form.login :guard="App\Enums\Role::SCOUT->value" />
 
     <a href="{{ route('auth.scout.register') }}" wire:navigate>
         <x-button>Registrar-se como olheiro</x-button>
