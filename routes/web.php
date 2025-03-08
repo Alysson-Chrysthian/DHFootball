@@ -12,6 +12,8 @@ Route::prefix('/auth/player')
         Route::get('/register', App\Livewire\Page\Auth\Player\Register::class)
             ->name('register');
 
+        Route::get('/verify-email', App\Livewire\Page\Auth\Player\VerificationEmailNotice::class)
+            ->name('verification.notice');
     });
 
 Route::prefix('/auth/scout')
@@ -23,4 +25,7 @@ Route::prefix('/auth/scout')
 
         Route::get('/register', App\Livewire\Page\Auth\Scout\Register::class)
             ->name('register');
+
+        Route::get('/verify-email', App\Livewire\Page\Auth\Scout\VerificationEmailNotice::class)
+            ->name('verification.notice');
     });
