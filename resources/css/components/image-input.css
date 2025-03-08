@@ -4,12 +4,17 @@
 
 .image-input figure {
     overflow: hidden;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    height: 250px;
-    width: 250px;
     margin: auto;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.image-input figure img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
 }
 
 .image-input svg,
