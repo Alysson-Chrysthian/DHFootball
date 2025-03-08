@@ -5,6 +5,7 @@
 <div class="
     image-input
     flex flex-col 
+    justify-center items-center
     {{ $attributes->get('class') }}
 ">   
 

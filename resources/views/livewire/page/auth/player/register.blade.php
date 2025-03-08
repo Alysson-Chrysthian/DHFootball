@@ -50,7 +50,7 @@
             class="{{ $step == 4 ? '' : 'hidden' }}"
         >    
             @foreach ($positions as $position)
-                <option value="{{ $positions->id }}">{{ $positions->name }}</option>
+                <option value="{{ $position->id }}">{{ $position->name }}</option>
             @endforeach
         </x-select>
         

@@ -42,6 +42,14 @@ class Register extends Component
             'avatar' => ['nullable', 'image'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'birthday.before' => 'Você deve ter mais do que 15 anos.',
+            'birthday.after' => 'Você é velho, mas não tanto.'
+        ];
+    }
     
     public function validationAttributes()
     {
