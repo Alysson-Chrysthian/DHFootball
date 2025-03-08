@@ -5,11 +5,13 @@ namespace App\Livewire\Page\Auth\Player;
 use App\Livewire\Component;
 use App\Livewire\Trait\WithMultiStepForm;
 use App\Models\Position;
+use Exception;
 use Livewire\Attributes\Layout;
+use Livewire\WithFileUploads;
 
 class Register extends Component
 {
-    use WithMultiStepForm;
+    use WithMultiStepForm, WithFileUploads;
 
     public $step = 0;
     public $stepFields = [
@@ -75,7 +77,15 @@ class Register extends Component
 
     public function register()
     {
-        $this->validate();
+        try {
+            $this->validate();
+        } catch (Exception $e) {
+            session()->flash('alert', __('auth.credentials'));
+            $this->redirect(
+                route('auth.player.register'),
+                true
+            );
+        }
     }
 
     #[Layout('components.layouts.auth')]

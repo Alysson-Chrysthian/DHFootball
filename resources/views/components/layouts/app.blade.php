@@ -12,6 +12,8 @@
         @stack('styles')
     </head>
     <body>
+        <x-alert />
+
         <main>
             {{ $slot }}
         </main>

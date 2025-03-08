@@ -6,10 +6,11 @@ use App\Livewire\Component;
 use App\Livewire\Trait\WithMultiStepForm;
 use App\Models\Club;
 use Livewire\Attributes\Layout;
+use Livewire\WithFileUploads;
 
 class Register extends Component
 {
-    use WithMultiStepForm;
+    use WithMultiStepForm, WithFileUploads;
     
     public $step = 0;
     public $stepFields = [
