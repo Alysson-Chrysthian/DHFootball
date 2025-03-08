@@ -2,10 +2,14 @@
 
 namespace App\Livewire\Page\Auth\Scout;
 
+use App\Enums\Role;
 use App\Livewire\Component;
 use App\Livewire\Trait\WithMultiStepForm;
 use App\Models\Club;
+use App\Models\Scout;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
@@ -74,7 +78,29 @@ class Register extends Component
                 route('auth.scout.register'),
                 true
             );
+            return;
         }
+
+        $avatar = null;
+
+        if ($this->avatar)
+            $avatar = $this->avatar->store(path: 'avatars');
+
+        $scout = new Scout;
+
+        $scout->email = $this->email;
+        $scout->name = $this->name;
+        $scout->password = Hash::make($this->password);
+        $scout->club_id = $this->club;
+        $scout->avatar = $avatar;
+
+        $scout->save();
+
+        Auth::guard(Role::SCOUT->value)->login($scout);
+        $this->redirect(
+            route('auth.scout.verification.notice'),
+            true
+        );
     }
 
     #[Layout('components.layouts.auth')]
