@@ -8,6 +8,6 @@ class Component extends LivewireComponent
 {
     public function updated($propertyName)
     {
-        $this->validateOnly($propertyName);
+        $this->validateOnly(str_replace('_confirmation', '', $propertyName));
     }
 }

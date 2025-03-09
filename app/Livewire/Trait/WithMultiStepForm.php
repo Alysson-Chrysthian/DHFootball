@@ -2,7 +2,8 @@
 
 namespace App\Livewire\Trait;
 
-trait WithMultiStepForm {
+trait WithMultiStepForm 
+{
 
     public function validateStepField() 
     {
