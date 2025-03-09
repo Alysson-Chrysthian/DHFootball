@@ -39,7 +39,7 @@ class Register extends Component
     public function rules()
     {
         return [
-            'email' => ['required', 'email', 'unique:players'],
+            'email' => ['required', 'email', 'unique:scouts'],
             'name' => ['required', 'string', 'between:3,15'],
             'password' => ['required', 'string', 'between:8,16', 'confirmed'],
             'club' => ['required', 'exists:clubs,id'],

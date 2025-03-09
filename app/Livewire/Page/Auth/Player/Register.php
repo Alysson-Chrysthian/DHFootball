@@ -109,7 +109,7 @@ class Register extends Component
         $player->save();
 
         Auth::guard(Role::PLAYER->value)->login($player);
-        return $this->redirect(
+        $this->redirect(
             route('auth.player.verification.notice'), 
             true
         );

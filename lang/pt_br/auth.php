@@ -17,5 +17,7 @@ return [
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'credentials' => 'Crendenciais invalidas.',
+    'wrong' => 'Alguma coisa deu errado.',
+    'already_verified' => 'Você ja esta verificado.',
 
 ];
