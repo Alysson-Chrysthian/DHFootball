@@ -29,10 +29,9 @@ class VerificationEmailNotice extends Component
             return;
         }
 
+        session()->flash('alert', __('auth.wrong'));
         $this->redirect(
-            route('auth.player.login', [
-                'alert' => __('auth.wrong'),
-            ]),
+            route('auth.player.login'),
             true
         );
     }
