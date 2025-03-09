@@ -27,7 +27,7 @@ Route::prefix('/auth/player')
             ->middleware('auth:players')
             ->name('verification.verify');
 
-        Route::get('/forgot-password/{id}/{hash}', App\Livewire\Page\Auth\Player\ResetPassword::class)
+        Route::get('/forgot-password/{token}', App\Livewire\Page\Auth\Player\ResetPassword::class)
             ->middleware('guest:players')
             ->name('password.reset');
     });
@@ -50,7 +50,7 @@ Route::prefix('/auth/scout')
             ->middleware('auth:scouts')
             ->name('verification.verify');
         
-        Route::get('/forgot-password/{id}/{hash}', App\Livewire\Page\Auth\Scout\ResetPassword::class)
+        Route::get('/forgot-password/{token}', App\Livewire\Page\Auth\Scout\ResetPassword::class)
             ->middleware('guest:scouts')
             ->name('password.reset');
     });
@@ -61,7 +61,7 @@ Route::prefix('/auth/forgot-password')
 
         Route::get('/', App\Livewire\Page\Auth\ForgotPasswordRequest::class)
             ->name('request');
-
+        
     });
 
 Route::prefix('/player')

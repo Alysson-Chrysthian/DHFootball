@@ -12,6 +12,7 @@
         @stack('styles')
     </head>
     <body>
+        <x-success />
         <x-alert />
 
         <main>
