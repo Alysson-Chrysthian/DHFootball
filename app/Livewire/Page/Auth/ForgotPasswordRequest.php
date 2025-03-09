@@ -8,7 +8,13 @@ use Livewire\Attributes\Layout;
 
 class ForgotPasswordRequest extends Component
 {
+    public $roles;
     public $email, $role;
+
+    public function mount()
+    {
+        $this->roles = Role::cases();
+    }
 
     public function rules()
     {

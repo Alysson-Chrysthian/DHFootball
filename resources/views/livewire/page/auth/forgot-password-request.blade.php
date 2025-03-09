@@ -13,7 +13,11 @@
             placeholder="Selecione seu tipo de acesso"
             wire:model.live="role"
             label="Tipo de acesso"
-        ></x-select>
+        >
+            @foreach ($roles as $roleOpt)
+                <option value="{{ $roleOpt->value }}">{{ $roleOpt->value }}</option>
+            @endforeach
+        </x-select>
 
         <x-button
             type="submit"
