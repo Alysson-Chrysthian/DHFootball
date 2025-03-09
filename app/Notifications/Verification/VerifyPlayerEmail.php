@@ -21,7 +21,7 @@ class VerifyPlayerEmail extends Notification
     public function __construct($id, $email)
     {
         $this->id = $id;
-        $this->hash = Hash::make($email);
+        $this->hash = sha1($email);
     }
 
     /**

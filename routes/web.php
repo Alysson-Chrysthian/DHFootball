@@ -63,3 +63,23 @@ Route::prefix('/auth/forgot-password')
             ->name('request');
 
     });
+
+Route::prefix('/player')
+    ->name('player.')
+    ->middleware(['auth:players', 'verified'])
+    ->group(function () {
+
+        Route::get('/profile', function () {})
+            ->name('profile');
+
+    });
+
+Route::prefix('/scout')
+    ->name('scout.')
+    ->middleware(['auth:scouts', 'verified'])
+    ->group(function () {
+
+        Route::get('/profile', function () {})
+            ->name('profile');
+
+    });

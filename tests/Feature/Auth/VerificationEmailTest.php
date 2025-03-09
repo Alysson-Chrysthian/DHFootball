@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Http\Controllers\AuthController;
 use App\Livewire\Page\Auth\Player\VerificationEmailNotice as PlayerVerificationEmailNotice;
 use App\Livewire\Page\Auth\Scout\VerificationEmailNotice as ScoutVerificationEmailNotice;
 use App\Models\Club;
@@ -82,7 +83,6 @@ class VerificationEmailTest extends TestCase
         Livewire::test(PlayerVerificationEmailNotice::class);
         
         Notification::assertNothingSent();
-        $this->assertTrue(session()->has('alert'));
     }
 
     public function test_is_alerting_when_scout_already_verified()
@@ -101,6 +101,46 @@ class VerificationEmailTest extends TestCase
         Livewire::test(ScoutVerificationEmailNotice::class);
         
         Notification::assertNothingSent();
+    }
+
+    public function test_can_verify_player_email()
+    {
+        Player::factory()->unverified()
+            ->create();
+
+        $player = Player::where('email_verified_at', null)->first();
+
+        $authController = new AuthController;
+        $authController->verifyPlayer($player->id, sha1($player->email));
+
+        $player = Player::find($player->id);
+
+        $this->assertNotNull($player->email_verified_at);
+    }
+
+    public function test_can_verify_scout_email()
+    {
+        Scout::factory()->unverified()
+        ->create();
+
+        $scout = Scout::where('email_verified_at', null)->first();
+
+        $authController = new AuthController;
+        $authController->verifyScout($scout->id, sha1($scout->email));
+
+        $scout = Scout::find($scout->id);
+
+        $this->assertNotNull($scout->email_verified_at);
+    }
+
+    public function test_is_not_verifing_when_already_verified()
+    {
+        Player::factory()->create();
+        $player = Player::whereNot('email_verified_at', null)->first();
+
+        $authController = new AuthController;
+        $authController->verifyPlayer($player->id, sha1($player->email));
+
         $this->assertTrue(session()->has('alert'));
     }
 

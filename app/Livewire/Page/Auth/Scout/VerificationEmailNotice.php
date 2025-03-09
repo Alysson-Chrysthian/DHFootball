@@ -17,9 +17,8 @@ class VerificationEmailNotice extends Component
 
         if ($scout && $scout instanceof User) {
             if ($scout->hasVerifiedEmail()) {
-                session()->flash('alert', __('auth.already_verified'));
                 $this->redirect(
-                    route('auth.scout.login'),
+                    route('scout.profile'),
                     true
                 );
                 return;

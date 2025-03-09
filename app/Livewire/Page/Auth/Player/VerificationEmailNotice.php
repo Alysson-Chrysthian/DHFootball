@@ -17,9 +17,8 @@ class VerificationEmailNotice extends Component
 
         if ($player && $player instanceof User) {
             if ($player->hasVerifiedEmail()) {
-                session()->flash('alert', __('auth.already_verified'));
                 $this->redirect(
-                    route('auth.player.login'),
+                    route('player.profile'),
                     true
                 );
                 return;
