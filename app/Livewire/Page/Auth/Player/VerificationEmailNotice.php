@@ -38,7 +38,9 @@ class VerificationEmailNotice extends Component
     }
 
     public function resend()
-    {}
+    {
+        $this->mount();
+    }
 
     #[Layout('components.layouts.auth')]
     public function render()

@@ -29,16 +29,17 @@ class VerificationEmailNotice extends Component
             return;
         }
 
+        session()->flash('alert', __('auth.wrong'));
         $this->redirect(
-            route('auth.scout.login', [
-                'alert' => __('auth.wrong')
-            ]),
+            route('auth.scout.login'),
             true
         );
     }
 
     public function resend()
-    {}
+    {
+        $this->mount();
+    }
 
     #[Layout('components.layouts.auth')]
     public function render()
