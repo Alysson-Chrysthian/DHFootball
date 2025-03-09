@@ -19,5 +19,6 @@ return [
     'credentials' => 'Invalid credentials',
     'wrong' => 'Something went wrong.',
     'already_verified' => 'You are already verified.',
+    'not_verified' => 'Your email is not verified.'
 
 ];
