@@ -66,6 +66,7 @@ class ForgotPasswordRequest extends Component
             'email' => $this->email,
             'role' => $this->role,
             'token' => $token,
+            'created_at' => now(),
         ]);
 
         $user->notify($notification);

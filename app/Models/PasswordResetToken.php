@@ -11,6 +11,7 @@ class PasswordResetToken extends Model
         'email',
         'role',
         'token',
+        'created_at',
     ];
 
     protected $primaryKey = 'email';
