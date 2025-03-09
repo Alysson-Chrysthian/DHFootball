@@ -2,10 +2,7 @@
 
     <h1>Login</h1>
 
-    <livewire:form.login 
-        :guard="App\Enums\Role::PLAYER->value" 
-        :redirect="route('player.profile')"    
-    />
+    <livewire:form.login :guard="App\Enums\Role::PLAYER->value" />
 
     <a href="{{ route('auth.player.register') }}" wire:navigate>
         <x-button>Registrar-se como jogador</x-button>
