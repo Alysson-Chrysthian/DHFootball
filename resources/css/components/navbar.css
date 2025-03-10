@@ -42,3 +42,15 @@
 .navbar .selected-tab path {
     fill: var(--color-light);
 }
+
+
+@media screen and (min-width: 720px) {
+    
+    .navbar {
+        flex-direction: column;
+        width: auto;
+        height: 100%;
+        padding: var(--spacing-large);
+    }
+
+}
