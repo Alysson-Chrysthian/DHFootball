@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.5s all;
 }
 
 .navbar a svg,
@@ -25,15 +26,19 @@
     height: var(--text-sub-heading);
 }
 
-.navbar a div {
+.navbar a:hover {
+    transform: translateY(-4px);
+}
+
+.navbar div {
     padding: var(--spacing-small);
     border-radius: var(--radius-default);
 }
 
-.navbar a:hover div {
+.navbar .selected-tab div {
     background-color: var(--color-secundary);
 }
 
-.navbar a:hover div path {
+.navbar .selected-tab path {
     fill: var(--color-light);
 }

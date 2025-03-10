@@ -11,7 +11,7 @@
             </div>
             <p>Chat</p>
         </a>
-        <a href="#" wire:navigate>
+        <a href="{{ route('player.profile') }}" wire:navigate>
             <div>
                 <x-css-profile />
             </div>
