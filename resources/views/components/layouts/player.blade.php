@@ -3,5 +3,19 @@
 @endPushOnce
 
 <x-layouts.app>
-    {{ $slot }}
+    <div>{{ $slot }}</div>
+    <x-layouts.components.navbar>
+        <a href="#" wire:navigate>
+            <div>
+                <x-ri-chat-2-line />
+            </div>
+            <p>Chat</p>
+        </a>
+        <a href="#" wire:navigate>
+            <div>
+                <x-css-profile />
+            </div>
+            <p>Perfil</p>
+        </a>
+    </x-layouts.components.navbar>
 </x-layouts.app>

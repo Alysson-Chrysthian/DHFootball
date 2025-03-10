@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: var(--spacing-small);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--radius-default);
+    background-color: var(--color-light);
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a svg,
+.navbar a path {
+    width: var(--text-sub-heading);
+    height: var(--text-sub-heading);
+}
+
+.navbar a div {
+    padding: var(--spacing-small);
+    border-radius: var(--radius-default);
+}
+
+.navbar a:hover div {
+    background-color: var(--color-secundary);
+}
+
+.navbar a:hover div path {
+    fill: var(--color-light);
+}

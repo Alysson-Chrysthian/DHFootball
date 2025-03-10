@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/css/scout.css',
                 //components styles
                 'resources/css/components/image-input.css',
+                'resources/css/components/navbar.css',
                 //layouts scripts 
                 'resources/js/app.js',
             ],

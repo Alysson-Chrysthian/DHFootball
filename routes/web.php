@@ -67,7 +67,7 @@ Route::prefix('/player')
     ->middleware(['auth:players', 'verified'])
     ->group(function () {
 
-        Route::get('/profile', function () {})
+        Route::get('/profile', App\Livewire\Page\Player\Profile::class)
             ->name('profile');
 
     });
@@ -77,7 +77,7 @@ Route::prefix('/scout')
     ->middleware(['auth:scouts', 'verified'])
     ->group(function () {
 
-        Route::get('/profile', function () {})
+        Route::get('/profile', App\Livewire\Page\Scout\Profile::class)
             ->name('profile');
 
     });
