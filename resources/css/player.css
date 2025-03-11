@@ -1,0 +1,16 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main > #content {
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 720px) {
+    
+    main {
+        flex-direction: row-reverse;
+    }
+
+}

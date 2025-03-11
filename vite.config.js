@@ -10,7 +10,6 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/auth.css',
                 'resources/css/player.css',
-                'resources/css/scout.css',
                 //components styles
                 'resources/css/components/image-input.css',
                 'resources/css/components/navbar.css',

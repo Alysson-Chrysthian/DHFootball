@@ -2,9 +2,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
     width: 100%;
     padding: var(--spacing-small);
     box-shadow: var(--shadow-default);

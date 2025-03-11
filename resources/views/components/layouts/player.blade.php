@@ -3,7 +3,7 @@
 @endPushOnce
 
 <x-layouts.app>
-    <div>{{ $slot }}</div>
+    <div id="content">{{ $slot }}</div>
     <x-layouts.components.navbar>
         <a href="#" wire:navigate>
             <div>
