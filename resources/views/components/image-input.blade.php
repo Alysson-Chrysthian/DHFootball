@@ -9,6 +9,10 @@
     {{ $attributes->get('class') }}
 ">   
 
+    @error($attributes->get('wire:model.live'))
+        <span class="error">{{ $message }}</span>
+    @enderror
+
     <label for="{{ $attributes->get('id') ?? 'image-input' }}">
         @if ($source)
             <figure class="

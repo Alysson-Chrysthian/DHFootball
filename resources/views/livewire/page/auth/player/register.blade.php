@@ -58,7 +58,7 @@
             wire:model.live="avatar"
             id="avatar-input"
             class="{{ $step == 5 ? '' : 'hidden' }}"
-            :source="$avatar ? $avatar->temporaryUrl() : null"
+            :source="$errors->has('avatar') ? null : ($avatar ? $avatar->temporaryUrl() : null)"
         />
 
         <x-button
