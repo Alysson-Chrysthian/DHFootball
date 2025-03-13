@@ -19,7 +19,8 @@
 }
 
 .navbar a svg,
-.navbar a path {
+.navbar a path,
+.navbar a img {
     width: var(--text-sub-heading);
     height: var(--text-sub-heading);
 }
@@ -39,6 +40,11 @@
 
 .navbar .selected-tab path {
     fill: var(--color-light);
+}
+
+.navbar img {
+    border-radius: 50%;
+    border: 2px solid var(--color-light);
 }
 
 

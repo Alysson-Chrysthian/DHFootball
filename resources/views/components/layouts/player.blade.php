@@ -13,7 +13,14 @@
         </a>
         <a href="{{ route('player.profile') }}" wire:navigate>
             <div>
-                <x-css-profile />
+                @if (auth('players')->user()->avatar)
+                    <img 
+                        src="/local/{{ auth('players')->user()->avatar }}" 
+                        alt="{{ auth('players')->user()->name }}_avatar"
+                    />
+                @else
+                    <x-css-profile />
+                @endif
             </div>
             <p>Perfil</p>
         </a>

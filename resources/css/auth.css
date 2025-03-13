@@ -12,7 +12,7 @@
 
 #content {
     height: 100%;
-    width: 305px;
+    max-width: 305px;
     margin: auto;
     display: flex;
     flex-direction: column;

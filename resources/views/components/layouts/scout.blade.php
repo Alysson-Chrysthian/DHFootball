@@ -19,7 +19,14 @@
         </a>
         <a href="{{ route('scout.profile') }}" wire:navigate>
             <div>
-                <x-css-profile />
+                @if (auth('scouts')->user()->avatar)
+                    <img 
+                        src="/local/{{ auth('scouts')->user()->avatar }}" 
+                        alt="{{ auth('scouts')->user()->name }}_avatar"
+                    />
+                @else
+                    <x-css-profile />
+                @endif
             </div>
             <p>Perfil</p>
         </a>
