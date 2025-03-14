@@ -7,12 +7,14 @@
             placeholder="Seu email cadastrado"
             wire:model.live="email"
             label="Email"
+            id="email-input"    
         />
 
         <x-select
             placeholder="Selecione seu tipo de acesso"
             wire:model.live="role"
             label="Tipo de acesso"
+            id="role-input"
         >
             @foreach ($roles as $roleOpt)
                 <option value="{{ $roleOpt->value }}">{{ $roleOpt->value }}</option>
