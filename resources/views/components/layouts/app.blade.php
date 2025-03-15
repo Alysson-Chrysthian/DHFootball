@@ -12,7 +12,6 @@
         @stack('styles')
     </head>
     <body>
-        <x-modal />
         <x-success />
         <x-alert />
 

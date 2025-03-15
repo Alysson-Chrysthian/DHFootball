@@ -21,4 +21,8 @@
             }, 6000);
         </script>
     @endpushonce
+
+    @php
+        session()->forget('success');
+    @endphp
 @endif

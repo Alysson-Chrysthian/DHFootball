@@ -68,6 +68,10 @@
     font-family: var(--font-sans);
 }
 
+html, body {
+    height: 100dvh;
+}
+
 main {
     height: 100%;
     width: 100%;

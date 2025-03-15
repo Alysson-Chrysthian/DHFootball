@@ -43,4 +43,8 @@
             });
         </script>
     @endPushOnce
+
+    @php
+        session()->forget('modal');
+    @endphp
 @endif

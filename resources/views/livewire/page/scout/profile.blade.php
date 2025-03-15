@@ -4,9 +4,12 @@
 
 <div>
 
-    <form>
+    <form wire:submit="update">
         <div>
-            <x-image-input />
+            <x-image-input
+                wire:model.live="avatar"
+                :source="$errors->has('avatar') ? $avatarUrl : ($avatar ? $avatar->temporaryUrl() : $avatarUrl)"
+            />
         </div>
 
         <div>
@@ -14,18 +17,25 @@
                 label="Nome"
                 placeholder="Seu novo nome"
                 id="name-input"
+                wire:model.live="name"
             />
 
             <x-text-input 
                 label="Email"
                 placeholder="Seu novo email"
                 id="email-input"
+                wire:model.live="email"
             />
 
             <x-select
                 label="Club"
                 id="club-input"
-            ></x-select>
+                wire:model.live="club"
+            >
+                @foreach ($clubs as $clubOpt)
+                    <option value="{{ $clubOpt->id }}">{{ $clubOpt->name }}</option>
+                @endforeach
+            </x-select>
 
             <div>
                 <a href="{{ route('auth.password.request') }}">

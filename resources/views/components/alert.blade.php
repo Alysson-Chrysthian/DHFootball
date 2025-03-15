@@ -21,4 +21,8 @@
             }, 6000);
         </script>
     @endpushonce
+
+    @php
+        session()->forget('alert');
+    @endphp
 @endif
