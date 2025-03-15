@@ -5,6 +5,7 @@ namespace App\Livewire\Page\Scout;
 use App\Enums\Role;
 use App\Livewire\Component;
 use App\Models\Club;
+use App\Notifications\Update\ScoutProfile;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -50,6 +51,9 @@ class Profile extends Component
     public function update()
     {
         $this->validate();
+        
+        $scout = Auth::guard(Role::SCOUT->value)->user();
+        $scout->notify(new ScoutProfile);
     }
 
     #[Layout('components.layouts.scout')]

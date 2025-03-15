@@ -5,6 +5,7 @@ namespace App\Livewire\Page\Player;
 use App\Enums\Role;
 use App\Livewire\Component;
 use App\Models\Position;
+use App\Notifications\Update\PlayerProfile;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -51,6 +52,9 @@ class Profile extends Component
     public function update()
     {
         $this->validate();
+        
+        $player = Auth::guard(Role::PLAYER->value)->user();
+        $player->notify(new PlayerProfile);
     }
 
     #[Layout('components.layouts.player')]
