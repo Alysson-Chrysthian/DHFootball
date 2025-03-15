@@ -13,6 +13,8 @@ export default defineConfig({
                 //components styles
                 'resources/css/components/image-input.css',
                 'resources/css/components/navbar.css',
+                //pages styles
+                'resources/css/pages/profile.css',
                 //layouts scripts 
                 'resources/js/app.js',
             ],

@@ -1,0 +1,45 @@
+main > #content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+main > #content > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main > #content form {
+    padding: var(--spacing-small);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-normal);
+}
+
+main > #content form > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-normal);
+}
+
+@media screen and (min-width: 720px) {
+
+    main > #content form div {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    main > #content form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+}
