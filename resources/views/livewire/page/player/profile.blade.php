@@ -4,15 +4,7 @@
 
 <div>
 
-    @if (!auth('players')->user()->video_id)
-        <x-modal>
-            Faça o upload do seu primeiro video
-            para iniciar sua carreira e começar 
-            a brilhar.
-        </x-modal>
-    @endif
-
-    <form>
+    <form wire:submit="update">
         <div>
             <x-image-input />
         </div>
