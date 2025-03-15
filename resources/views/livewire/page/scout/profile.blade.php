@@ -10,13 +10,13 @@
         </div>
 
         <div>
-            <x-edit-text-input 
+            <x-text-input 
                 label="Nome"
                 placeholder="Seu novo nome"
                 id="name-input"
             />
 
-            <x-edit-text-input 
+            <x-text-input 
                 label="Email"
                 placeholder="Seu novo email"
                 id="email-input"
@@ -38,6 +38,13 @@
                     </x-button>
                 </a>
             </div>
+
+            <x-button
+                type="submit"
+                wire:target="update"
+            >
+                Alterar minhas informações
+            </x-button>
         </div>
     </form>
 
