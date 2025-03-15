@@ -19,7 +19,6 @@ class VerificationEmailNotice extends Component
             if ($player->hasVerifiedEmail()) {
                 $this->redirect(
                     route('player.profile'),
-                    true
                 );
                 return;
             }

@@ -19,7 +19,6 @@ class VerificationEmailNotice extends Component
             if ($scout->hasVerifiedEmail()) {
                 $this->redirect(
                     route('scout.profile'),
-                    true
                 );
                 return;
             }
