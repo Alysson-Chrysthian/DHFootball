@@ -22,16 +22,22 @@
                 id="email-input"
             />
 
-            <x-edit-text-input 
-                label="Senha"
-                placeholder="Sua nova senha"
-                id="password-input"
-            />
-
             <x-select
                 label="Club"
                 id="club-input"
             ></x-select>
+
+            <div>
+                <a href="{{ route('auth.password.request') }}">
+                    <label for="reset-password-button">Redefinir senha</label>
+                    <x-button
+                        type="button"
+                        id="reset-password-button"
+                    >
+                        <x-ri-lock-password-line class="w-6 h-6" />
+                    </x-button>
+                </a>
+            </div>
         </div>
     </form>
 

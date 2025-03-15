@@ -4,6 +4,14 @@
 
 <div>
 
+    @if (!auth('players')->user()->video_id)
+        <x-modal>
+            Faça o upload do seu primeiro video
+            para iniciar sua carreira e começar 
+            a brilhar.
+        </x-modal>
+    @endif
+
     <form>
         <div>
             <x-image-input />
@@ -22,20 +30,28 @@
                 id="email-input"
             />
             
-            <x-edit-text-input
-                label="Senha"
-                placeholder="Sua nova senha"
-                id="password-input"
-            />
-            
             <x-select
                 label="Posição"
                 id="position-input"
             ></x-select>
+
+            <div>
+                <a href="{{ route('auth.password.request') }}">
+                    <label for="reset-password-button">Redefinir senha</label>
+                    <x-button
+                        type="button"
+                        id="reset-password-button"
+                    >
+                        <x-ri-lock-password-line class="w-6 h-6" />
+                    </x-button>
+                </a>
+            </div>
+
             <x-video-input
                 label="Subir ou atualizar video"
                 id="video-input"
             />
+
             <div>
                 <label for="watch-video-button">Assistir video</label>
                 <x-button
