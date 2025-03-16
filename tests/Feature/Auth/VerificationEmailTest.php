@@ -121,7 +121,7 @@ class VerificationEmailTest extends TestCase
     public function test_can_verify_scout_email()
     {
         Scout::factory()->unverified()
-        ->create();
+            ->create();
 
         $scout = Scout::where('email_verified_at', null)->first();
 

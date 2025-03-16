@@ -10,4 +10,13 @@ use Illuminate\Notifications\Notifiable;
 class Player extends User implements MustVerifyEmail
 {
     use Notifiable, HasFactory;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'position_id',
+        'video_id',
+        'avatar',
+        'birthday',
+    ];
 }
