@@ -4,6 +4,7 @@ namespace App\Livewire\Page\Scout;
 
 use App\Enums\Role;
 use App\Livewire\Component;
+use App\Livewire\Trait\WithUserInfoUpdate;
 use App\Models\Club;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +13,7 @@ use Livewire\WithFileUploads;
 
 class Profile extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithUserInfoUpdate;
 
     public $avatarUrl = null;
     public $clubs;
@@ -56,36 +57,6 @@ class Profile extends Component
 
         $callback = 'update' . ucfirst($propertyName);
         call_user_func_array([$this, $callback], [Auth::guard(Role::SCOUT->value)->user()]);
-    }
-
-    public function updateName($user)
-    {
-        $user->update([
-            'name' => $this->name,
-        ]);
-    }
-
-    public function updateEmail($user)
-    {
-        //
-    }
-
-    public function updateClub($user)
-    {
-        $user->update([
-            'club_id' => $this->club,
-        ]);
-    }
-
-    public function updateAvatar($user)
-    {
-        $avatar = $this->avatar->store(path: 'avatars');
-        if ($user->avatar)
-            Storage::disk('local')->delete($user->avatar);
-
-        $user->update([
-            'avatar' => $avatar
-        ]);
     }
 
     #[Layout('components.layouts.scout')]

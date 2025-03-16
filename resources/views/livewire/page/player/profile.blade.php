@@ -7,7 +7,7 @@
     <form>
         <div>
             <x-image-input 
-                wire:model.live="avatar"
+                wire:model.blur="avatar"
                 :source="$errors->has('avatar') ? $avatarUrl : ($avatar ? $avatar->temporaryUrl() : $avatarUrl)"
             />
         </div>
@@ -17,20 +17,20 @@
                 label="Nome"
                 placeholder="Seu novo nome"
                 id="name-input"
-                wire:model.live="name"
+                wire:model.blur="name"
             />
             
             <x-text-input
                 label="Email"
                 placeholder="Seu novo email"
                 id="email-input"
-                wire:model.live="email"
+                wire:model.blur="email"
             />
             
             <x-select
                 label="Posição"
                 id="position-input"
-                wire:model.live="position"
+                wire:model.blur="position"
             >
                 @foreach ($positions as $positionOpt)
                     <option value="{{ $positionOpt->id }}">{{ $positionOpt->name }}</option>
@@ -52,7 +52,7 @@
             <x-video-input
                 label="Subir ou atualizar video"
                 id="video-input"
-                wire:model.live="video"
+                wire:model.blur="video"
             />
 
             <div>

@@ -4,17 +4,17 @@ namespace App\Livewire\Page\Player;
 
 use App\Enums\Role;
 use App\Livewire\Component;
+use App\Livewire\Trait\WithUserInfoUpdate;
 use App\Models\Position;
-use App\Notifications\Update\PlayerProfile;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
 class Profile extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithUserInfoUpdate;
 
-    public $avatarUrl;
+    public $avatarUrl = null;
     public $positions;
     public $name, $email, $avatar, $position, $video;
 
@@ -22,7 +22,9 @@ class Profile extends Component
     {
         $player = Auth::guard(Role::PLAYER->value)->user();
 
-        $this->avatarUrl = '/local/' . $player->avatar;
+        if ($player->avatar)
+            $this->avatarUrl = '/local/' . $player->avatar;
+
         $this->name = $player->name;
         $this->email = $player->email;
         $this->position = $player->position_id;
@@ -47,6 +49,14 @@ class Profile extends Component
             'name' => 'nome',
             'position' => 'posição',
         ];
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+
+        $callback = 'update' . ucfirst($propertyName);
+        call_user_func_array([$this, $callback], [Auth::guard(Role::PLAYER->value)->user()]);
     }
 
     #[Layout('components.layouts.player')]
