@@ -49,14 +49,6 @@ class Profile extends Component
         ];
     }
 
-    public function update()
-    {
-        $this->validate();
-        
-        $player = Auth::guard(Role::PLAYER->value)->user();
-        $player->notify(new PlayerProfile);
-    }
-
     #[Layout('components.layouts.player')]
     public function render()
     {

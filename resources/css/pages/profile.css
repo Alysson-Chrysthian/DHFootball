@@ -16,7 +16,7 @@ main > #content > div {
 main > #content form {
     padding: var(--spacing-small);
     width: 100%;
-    max-width: 500px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-large);

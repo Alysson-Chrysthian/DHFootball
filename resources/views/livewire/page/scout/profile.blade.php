@@ -4,7 +4,7 @@
 
 <div>
 
-    <form wire:submit="update">
+    <form>
         <div>
             <x-image-input
                 wire:model.live="avatar"
@@ -48,13 +48,6 @@
                     </x-button>
                 </a>
             </div>
-
-            <x-button
-                type="submit"
-                wire:target="update"
-            >
-                Alterar minhas informações
-            </x-button>
         </div>
     </form>
 

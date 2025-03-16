@@ -48,14 +48,6 @@ class Profile extends Component
         ];
     }
 
-    public function update()
-    {
-        $this->validate();
-        
-        $scout = Auth::guard(Role::SCOUT->value)->user();
-        $scout->notify(new ScoutProfile);
-    }
-
     #[Layout('components.layouts.scout')]
     public function render()
     {

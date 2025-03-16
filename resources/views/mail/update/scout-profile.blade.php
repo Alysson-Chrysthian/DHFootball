@@ -1,5 +1,5 @@
 <x-mail::message>
-Estão tentando mudar as informações do seu perfil,
+Estão tentando mudar o email do seu perfil,
 por favor, clique no link abaixo para confirmar que 
 foi você
 
