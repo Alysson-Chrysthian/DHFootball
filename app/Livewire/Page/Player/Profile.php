@@ -56,7 +56,7 @@ class Profile extends Component
         $this->validateOnly($propertyName);
 
         $callback = 'update' . ucfirst($propertyName);
-        call_user_func_array([$this, $callback], [Auth::guard(Role::PLAYER->value)->user()]);
+        call_user_func_array([$this, $callback], [Auth::guard(Role::PLAYER->value)->user(), Role::PLAYER->value]);
     }
 
     #[Layout('components.layouts.player')]

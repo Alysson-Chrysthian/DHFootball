@@ -60,7 +60,7 @@ class ProfileTest extends TestCase
 
         $this->user->fresh();
 
-        $this->assertEquals($club->id, $this->user->club_id);
+        $this->assertEquals($this->user->club_id, $club->id);
     }
 
     public function test_can_update_avatar()

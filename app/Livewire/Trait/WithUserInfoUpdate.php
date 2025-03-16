@@ -13,7 +13,7 @@ trait WithUserInfoUpdate
         ]);
     }
 
-    public function updateEmail($user)
+    public function updateEmail($user, $role)
     {
         //
     }
