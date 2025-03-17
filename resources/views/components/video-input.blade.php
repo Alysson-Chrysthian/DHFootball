@@ -1,4 +1,7 @@
 <div class="flex flex-col">
+    @error($attributes->get('wire:model.live') ?? $attributes->get('wire:model.blur'))
+        <span class="error">{{ $message }}</span>
+    @enderror
     @if ($label)
         <label for="{{ $attributes->get('id') }}">{{ $label }}</label>
     @endif
