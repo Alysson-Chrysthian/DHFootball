@@ -6,6 +6,6 @@ entao por favor, clique no link abaixo para confirmar a mudança
 Atualizar email
 </x-mail::button>
 
-Thanks,<br>
+Obrigado por usar novo app, atenciosamente,<br>
 {{ config('app.name') }}
 </x-mail::message>
