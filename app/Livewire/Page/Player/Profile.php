@@ -39,7 +39,7 @@ class Profile extends Component
             'name' => ['required', 'string', 'between:3,15'],
             'position' => ['required', 'exists:positions,id'],
             'avatar' => ['nullable', 'image'],
-            'video' => ['nullable', 'file', 'mimetypes:video/avi,video/mpeg,video/quicktime'],
+            'video' => ['nullable', 'file', 'mimes:mp4,wav'],
         ];
     }
 
