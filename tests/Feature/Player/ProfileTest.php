@@ -74,4 +74,19 @@ class ProfileTest extends TestCase
         $this->assertEquals($position->id, $this->user->position_id);
     }
 
+    public function test_can_update_video()
+    {
+        Storage::fake('local');
+
+        $video = UploadedFile::fake()->create('video.mp4', 50*1024, 'mp4');
+
+        Livewire::test(Profile::class)
+            ->set('video', $video)
+            ->call('updateVideo', $this->user);
+
+        $this->user->fresh();
+
+        $this->assertNotNull($this->user->video);
+    }
+
 }
