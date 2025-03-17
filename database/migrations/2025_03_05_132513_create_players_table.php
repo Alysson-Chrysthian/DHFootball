@@ -19,18 +19,15 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar')
                 ->nullable();
+            $table->string('video')
+                ->nullable();
             $table->timestamp('birthday');
             $table->timestamp('email_verified_at')
                 ->nullable();
             $table->unsignedBigInteger('position_id');
-            $table->unsignedBigInteger('video_id')
-                ->nullable();
             $table->foreign('position_id')
                 ->references('id')
                 ->on('positions');
-            $table->foreign('video_id')
-                ->references('id')
-                ->on('videos');
             $table->timestamps();
         });
     }

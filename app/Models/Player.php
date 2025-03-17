@@ -15,7 +15,7 @@ class Player extends User implements MustVerifyEmail
         'name',
         'email',
         'position_id',
-        'video_id',
+        'video',
         'avatar',
         'birthday',
     ];

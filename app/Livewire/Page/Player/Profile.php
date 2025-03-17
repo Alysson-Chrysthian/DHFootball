@@ -62,7 +62,7 @@ class Profile extends Component
     #[Layout('components.layouts.player')]
     public function render()
     {
-        if (!Auth::guard(Role::PLAYER->value)->user()->video_id) 
+        if (!Auth::guard(Role::PLAYER->value)->user()->video) 
             session()->flash(
                 'modal',
                 'Faça o upload do seu primeiro video para iniciar sua carreira e começar a brilhar'  
