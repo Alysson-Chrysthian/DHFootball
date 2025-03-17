@@ -20,7 +20,13 @@ trait WithUserInfoUpdate
 
     public function updateVideo($user)
     {
-        //
+        $video = $this->video->store(path: 'videos');
+        if ($user->video)
+            Storage::disk('local')->delete($user->video);
+
+        $user->update([
+            'video' => $video,
+        ]);
     }
 
     public function updateClub($user)
