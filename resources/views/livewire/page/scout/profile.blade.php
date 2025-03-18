@@ -20,13 +20,6 @@
                 wire:model.blur="name"
             />
 
-            <x-text-input 
-                label="Email"
-                placeholder="Seu novo email"
-                id="email-input"
-                wire:model.blur="email"
-            />
-
             <x-select
                 label="Club"
                 id="club-input"

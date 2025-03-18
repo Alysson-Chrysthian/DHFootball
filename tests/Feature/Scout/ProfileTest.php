@@ -3,19 +3,15 @@
 namespace Tests\Feature\Scout;
 
 use App\Enums\Role;
-use App\Http\Controllers\AuthController;
 use App\Livewire\Page\Scout\Profile;
 use App\Models\Club;
 use App\Models\Scout;
-use App\Models\UpdateEmailToken;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Tests\TestCase;
-use Illuminate\Support\Str;
 
 class ProfileTest extends TestCase
 {
@@ -79,37 +75,6 @@ class ProfileTest extends TestCase
         $this->user->fresh();
 
         $this->assertNotNull($this->user->avatar);
-    }
-
-    public function test_can_send_update_email_notification()
-    {
-        Notification::fake();
-
-        Livewire::test(Profile::class)
-            ->set('email', 'test@gmail.com')
-            ->call('updateEmail', $this->user, Role::SCOUT->value);
-
-        $this->assertNotNull(UpdateEmailToken::where('old_email', $this->user->email)->first());
-    }
-
-    public function test_can_update_email()
-    {
-        $token = Str::random(60);
-        $old_email = $this->user->email;
-        $new_email = 'newemail@mail.com';
-        $role = Role::SCOUT->value;
-
-        UpdateEmailToken::factory()->create([
-            'old_email' => $old_email,
-            'new_email' => $new_email,
-            'token' => $token,
-            'role' => $role,
-        ]);
-
-        $authController = new AuthController;
-        $authController->updateScoutEmail($this->user->id, $token);
-
-        $this->assertEquals('newemail@mail.com', Scout::find($this->user->id)->email);
     }
 
 }

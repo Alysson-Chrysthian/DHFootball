@@ -17,7 +17,7 @@ class Profile extends Component
 
     public $avatarUrl = null;
     public $clubs;
-    public $name, $email, $avatar, $club;
+    public $name, $avatar, $club;
 
     public function mount()
     {
@@ -27,7 +27,6 @@ class Profile extends Component
             $this->avatarUrl = '/local/' . $scout->avatar;
 
         $this->name = $scout->name;
-        $this->email = $scout->email;
         $this->club = $scout->club_id;
         
         $this->clubs = Club::all();
@@ -36,7 +35,6 @@ class Profile extends Component
     public function rules()
     {
         return [
-            'email' => ['required', 'email'],
             'name' => ['required', 'string', 'between:3,15'],
             'avatar' => ['nullable', 'image'],
             'club' => ['required', 'exists:clubs,id'],

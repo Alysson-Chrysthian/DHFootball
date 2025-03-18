@@ -69,8 +69,6 @@ Route::prefix('/player')
 
         Route::get('/profile', App\Livewire\Page\Player\Profile::class)
             ->name('profile');
-        Route::get('/profile/update-email/{id}/{hash}', [AuthController::class, 'updatePlayerEmail'])
-            ->name('profile.update-email');
 
     });
 
@@ -81,7 +79,5 @@ Route::prefix('/scout')
 
         Route::get('/profile', App\Livewire\Page\Scout\Profile::class)
             ->name('profile');
-        Route::get('/profile/update-email/{id}/{hash}', [AuthController::class, 'updateScoutEmail'])
-            ->name('profile.update-email');
 
     });

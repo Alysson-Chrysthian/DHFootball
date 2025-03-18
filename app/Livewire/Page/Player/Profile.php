@@ -16,7 +16,7 @@ class Profile extends Component
 
     public $avatarUrl = null;
     public $positions;
-    public $name, $email, $avatar, $position, $video;
+    public $name, $avatar, $position, $video;
 
     public function mount()
     {
@@ -26,7 +26,6 @@ class Profile extends Component
             $this->avatarUrl = '/local/' . $player->avatar;
 
         $this->name = $player->name;
-        $this->email = $player->email;
         $this->position = $player->position_id;
 
         $this->positions = Position::all();
@@ -35,7 +34,6 @@ class Profile extends Component
     public function rules()
     {
         return [
-            'email' => ['required', 'email'],
             'name' => ['required', 'string', 'between:3,15'],
             'position' => ['required', 'exists:positions,id'],
             'avatar' => ['nullable', 'image'],
