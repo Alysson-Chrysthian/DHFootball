@@ -4,7 +4,7 @@
 
 <div>
 
-    <form>
+    <form wire:submit.prevent>
         <div>
             <x-image-input
                 wire:model.blur="avatar"
