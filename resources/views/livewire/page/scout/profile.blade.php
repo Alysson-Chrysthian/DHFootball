@@ -13,7 +13,7 @@
         </div>
 
         <div>
-            <x-text-input 
+            <x-edit-text-input 
                 label="Nome"
                 placeholder="Seu novo nome"
                 id="name-input"

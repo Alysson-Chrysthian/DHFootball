@@ -13,6 +13,7 @@ export default defineConfig({
                 //components styles
                 'resources/css/components/image-input.css',
                 'resources/css/components/navbar.css',
+                'resources/css/components/edit-text-input.css',
                 //pages styles
                 'resources/css/pages/profile.css',
                 //layouts scripts 

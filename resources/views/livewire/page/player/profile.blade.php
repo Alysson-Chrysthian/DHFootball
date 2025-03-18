@@ -4,7 +4,7 @@
 
 <div>
 
-    <form>
+    <form wire:submit.prevent>
         <div>
             <x-image-input 
                 wire:model.blur="avatar"
@@ -13,7 +13,7 @@
         </div>
 
         <div>
-            <x-text-input
+            <x-edit-text-input
                 label="Nome"
                 placeholder="Seu novo nome"
                 id="name-input"

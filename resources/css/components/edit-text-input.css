@@ -1,0 +1,16 @@
+.edit-text-input-container .edit-text-input:focus {
+    background-color: transparent;
+}
+
+.edit-text-input-container .edit-text-input:focus {
+    color: var(--color-light);
+}
+
+.edit-text-input-container .edit-text-input:focus ~ .edit-text-button-container {
+    color: var(--color-light);
+}
+
+.edit-text-input-container .edit-text-input:focus ~ .focus-container {
+    transform: translateX(-100%);
+    z-index: -1;
+}
