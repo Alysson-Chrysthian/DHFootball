@@ -7,17 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UpdateEmail extends Notification
+class UpdateScoutEmail extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public $id,
+        public $token,
+    )
+    {}
 
     /**
      * Get the notification's delivery channels.
@@ -34,7 +35,10 @@ class UpdateEmail extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)->markdown('mail.profile.update-email');
+        return (new MailMessage)->markdown('mail.profile.update-scout-email', [
+            'id' => $this->id,
+            'token' => $this->token,
+        ]);
     }
 
     /**
