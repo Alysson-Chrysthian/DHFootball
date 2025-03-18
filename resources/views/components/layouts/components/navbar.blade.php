@@ -12,7 +12,7 @@
         pageUrl = location.href;
 
         navLinks.forEach(link => {
-            if (link.href != pageUrl) 
+            if (pageUrl.search(link.href)) 
                 return;
 
             link.classList.add('selected-tab');
