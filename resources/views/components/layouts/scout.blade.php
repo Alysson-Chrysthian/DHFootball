@@ -7,7 +7,7 @@
 
     <div id="content">{{ $slot }}</div>
     <x-layouts.components.navbar>
-        <a href="#" wire:navigate>
+        <a href="{{ route('scout.explore') }}" wire:navigate>
             <div>
                 <x-eos-explore-o />
             </div>

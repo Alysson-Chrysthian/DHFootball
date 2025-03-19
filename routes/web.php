@@ -80,4 +80,7 @@ Route::prefix('/scout')
         Route::get('/profile', App\Livewire\Page\Scout\Profile::class)
             ->name('profile');
 
+        Route::get('/explore', App\Livewire\Page\Scout\Explore\ForYou::class)
+            ->name('explore');
+
     });
