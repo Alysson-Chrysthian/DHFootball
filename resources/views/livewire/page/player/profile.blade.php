@@ -78,7 +78,7 @@
     >
         <div class="
             flex items-center justify-center
-            w-full h-1/2
+            w-full max-w-[720px] h-1/2
         ">
             <video 
                 controls 
