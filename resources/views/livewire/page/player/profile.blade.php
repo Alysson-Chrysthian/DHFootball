@@ -53,6 +53,7 @@
                 <x-button
                     type="button"
                     id="watch-video-button"
+                    wire:click="$js.toggleVideo"
                 >
                     <x-ri-play-fill class="w-6 h-6" />
                 </x-button>
@@ -60,4 +61,55 @@
         </div>
     </form>
 
+    <div 
+        class="
+            hidden
+            p-very-large
+            flex items-center justify-center
+            absolute
+            top-[50%] left-[50%]
+            translate-[-50%]
+            w-full h-full
+            bg-shadow
+            z-10
+        "
+        id="video-modal"    
+        wire:click="$js.toggleVideo"
+    >
+        <div class="
+            flex items-center justify-center
+            w-full h-1/2
+        ">
+            <video 
+                controls 
+                preload="metadata"
+                class="
+                    bg-secundary
+                    w-full h-full
+                "    
+                id="video-player"
+            >
+                <source src="/local/{{ auth()->user()->video }}">
+            </video>
+        </div>
+    </div>
+
 </div>
+
+@pushOnce('scripts')
+    @script
+        <script>
+            $js('toggleVideo', () => {
+                const videoModal = document.querySelector('#video-modal');
+                const videoPlayer = document.querySelector('#video-player');
+
+                videoPlayer.pause();
+                videoModal.classList.toggle('hidden');
+            });
+
+            document.querySelector('#video-player').addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        </script>
+    @endscript
+@endPushOnce

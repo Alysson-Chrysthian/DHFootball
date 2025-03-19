@@ -13,6 +13,7 @@
     --color-primary: var(--color-primary);
     --color-secundary: var(--color-secundary);
     --color-error: var(--color-error);
+    --color-shadow: var(--color-shadow);
 
     --spacing-tiny: var(--spacing-tiny);
     --spacing-small: var(--spacing-small);
@@ -41,6 +42,7 @@
     --color-primary: #007729;
     --color-secundary: #252440;
     --color-error: #a83643;
+    --color-shadow: #1a1a1aa0;
 
     --spacing-tiny: 0.25rem;
     --spacing-small: 0.50rem;

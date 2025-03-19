@@ -14,3 +14,12 @@
     transform: translateX(-100%);
     z-index: -1;
 }
+
+.edit-text-button-container:hover {
+    z-index: 10;
+    color: var(--color-light);
+}
+
+.edit-text-button-container:hover ~ .focus-container {
+    transform: translateX(-12%);
+}

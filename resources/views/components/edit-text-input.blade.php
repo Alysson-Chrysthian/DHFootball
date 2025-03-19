@@ -43,8 +43,6 @@
             rounded-default
             p-small
             cursor-pointer
-            hover:bg-secundary
-            hover:text-light
         ">
             <x-ri-edit-line class="w-6 h-6" />
         </div>
