@@ -17,7 +17,8 @@
                     bg-light text-dark
                     outline-none
                     w-full
-                '
+                ' 
+                . ($dark ? 'bg-secundary text-light' : '')
             ])
         }}
     >
