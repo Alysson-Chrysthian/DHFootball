@@ -44,7 +44,11 @@
 
 .navbar img {
     border-radius: 50%;
-    border: 2px solid var(--color-light);
+    border: 2px solid var(--color-dark);
+}
+
+.navbar .selected-tab img {
+    border-color: var(--color-light);
 }
 
 
