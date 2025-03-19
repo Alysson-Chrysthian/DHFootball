@@ -2,11 +2,22 @@
 
 namespace App\Livewire\Page\Scout\Explore;
 
+use App\Enums\Age;
+use App\Models\Position;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class ForYou extends Component
 {
+    public $positions;
+    public $ages;
+
+    public function mount()
+    {
+        $this->positions = Position::all();
+        $this->ages = Age::cases();
+    }
+
     #[Layout('components.layouts.scout')]
     public function render()
     {

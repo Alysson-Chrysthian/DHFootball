@@ -10,6 +10,9 @@
             placeholder="Todas as posições"
             :dark="true"
         >
+            @foreach ($positions as $position)
+                <option value="{{ $position->id }}">{{ $position->name }}</option>
+            @endforeach
         </x-select>
 
         <x-select 
@@ -17,6 +20,9 @@
             placeholder="Todas as idades"
             :dark="true"
         >
+            @foreach ($ages as $age)
+                <option value="{{ $age->value }}">{{ $age->text() }}</option>
+            @endforeach
         </x-select>
     </div>
 
