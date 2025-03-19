@@ -7,13 +7,13 @@
 
     <div id="content">{{ $slot }}</div>
     <x-layouts.components.navbar>
-        <a href="#" wire:navigate>
+        <a href="#">
             <div>
                 <x-ri-chat-2-line />
             </div>
             <p>Chat</p>
         </a>
-        <a href="{{ route('player.profile') }}" wire:navigate>
+        <a href="{{ route('player.profile') }}">
             <div>
                 @if (auth('players')->user()->avatar)
                     <img 

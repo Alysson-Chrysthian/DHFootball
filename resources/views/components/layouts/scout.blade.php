@@ -7,7 +7,7 @@
 
     <div id="content">{{ $slot }}</div>
     <x-layouts.components.navbar>
-        <a href="{{ route('scout.explore') }}" wire:navigate>
+        <a href="{{ route('scout.explore') }}">
             <div>
                 <x-eos-explore-o />
             </div>
@@ -19,7 +19,7 @@
             </div>
             <p>Chat</p>
         </a>
-        <a href="{{ route('scout.profile') }}" wire:navigate>
+        <a href="{{ route('scout.profile') }}">
             <div>
                 @if (auth('scouts')->user()->avatar)
                     <img 
