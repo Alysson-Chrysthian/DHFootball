@@ -104,6 +104,7 @@
                 const videoPlayer = document.querySelector('#video-player');
 
                 videoPlayer.pause();
+                videoPlayer.load();
                 videoModal.classList.toggle('hidden');
             });
 
