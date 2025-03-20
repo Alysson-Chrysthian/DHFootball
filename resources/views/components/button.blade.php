@@ -16,7 +16,14 @@
             ]) 
         }}
     >
-        {{ $slot ?? "" }}
+        <span 
+            @if ($attributes->get('wire:target')) 
+                wire:loading.remove  
+                wire:target="{{ $attributes->get('wire:target') }}"    
+            @endif
+        >
+            {{ $slot ?? "" }}
+        </span>
 
         @if ($attributes->get('wire:target'))
             <x-css-spinner 
