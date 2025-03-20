@@ -7,6 +7,7 @@ use App\Livewire\Component;
 use App\Livewire\Trait\WithUserInfoUpdate;
 use App\Models\Position;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
@@ -61,6 +62,18 @@ class Profile extends Component
     {
         Auth::guard(Role::PLAYER->value)->logout();
         $this->redirect(route('auth.player.login'));
+    }
+
+    public function deleteVideo()
+    {
+        $player = Auth::guard(Role::PLAYER->value)->user();
+
+        if ($player->video != null) {
+            Storage::disk('local')->delete($player->video);
+            $player->update([
+                'video' => null,
+            ]);
+        }
     }
 
     #[Layout('components.layouts.player')]

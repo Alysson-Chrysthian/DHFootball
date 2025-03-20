@@ -88,4 +88,37 @@ class ProfileTest extends TestCase
         $this->assertNotNull($this->user->video);
     }
 
+    public function test_can_delete_video()
+    {
+        Storage::fake();
+
+        Player::where('video', null)->delete();
+
+        $video = UploadedFile::fake()->create('video.mp4', 10000, 'mp4');
+        Storage::put('videos/video.mp4', file_get_contents($video->getPathname()));
+
+        Player::factory()->create([
+            'video' => 'videos/video.mp4',
+        ]);
+
+        $player = Player::whereNot('video', null)->first();
+
+        Auth::guard(Role::PLAYER->value)->login($player);
+    
+        Livewire::test(Profile::class)
+            ->call('deleteVideo');
+            
+        Storage::assertMissing('videos/video.mp4');
+    }
+
+    public function test_is_not_throwing_an_error_when_file_not_exists()
+    {
+        $this->expectNotToPerformAssertions();
+
+        Auth::guard(Role::PLAYER->value)->login($this->user);
+
+        Livewire::test(Profile::class)
+            ->call('deleteVideo');    
+    }
+
 }

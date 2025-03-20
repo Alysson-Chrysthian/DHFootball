@@ -89,9 +89,25 @@
         wire:click="$js.toggleVideo"
     >
         <div class="
+            relative
             flex items-center justify-center
             w-full max-w-[720px] h-1/2
         ">
+            @if (auth('players')->user()->video)
+                <x-css-trash 
+                    class="
+                        w-10 h-10
+                        absolute 
+                        top-normal right-normal
+                        text-light
+                        cursor-pointer
+                        z-10
+                        p-small rounded-[50%]
+                        hover:bg-shadow
+                    "
+                    wire:click="deleteVideo"
+                />
+            @endif
             <video 
                 controls 
                 preload="metadata"
