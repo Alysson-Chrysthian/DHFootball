@@ -19,4 +19,9 @@ class Player extends User implements MustVerifyEmail
         'avatar',
         'birthday',
     ];
+
+    public function position()
+    {
+        return $this->hasOne(Position::class, 'id', 'position_id');
+    }
 }
