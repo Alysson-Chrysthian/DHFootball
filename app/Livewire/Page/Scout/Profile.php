@@ -57,6 +57,12 @@ class Profile extends Component
         call_user_func_array([$this, $callback], [Auth::guard(Role::SCOUT->value)->user(), Role::SCOUT->value]);
     }
 
+    public function logout()
+    {
+        Auth::guard(Role::SCOUT->value)->logout();
+        $this->redirect(route('auth.scout.login'));
+    }
+
     #[Layout('components.layouts.scout')]
     public function render()
     {

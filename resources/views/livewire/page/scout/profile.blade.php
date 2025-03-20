@@ -41,6 +41,18 @@
                     </x-button>
                 </a>
             </div>
+            
+            <div>
+                <label for="logout-button">Sair</label>
+                <x-button
+                    type="button"
+                    id="logout-button"
+                    wire:click="logout"
+                    wire:target="logout"
+                >
+                    <x-bx-exit class="w-6 h-6" />
+                </x-button>
+            </div>
         </div>
     </form>
 

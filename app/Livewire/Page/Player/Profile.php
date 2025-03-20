@@ -57,6 +57,12 @@ class Profile extends Component
         call_user_func_array([$this, $callback], [Auth::guard(Role::PLAYER->value)->user(), Role::PLAYER->value]);
     }
 
+    public function logout()
+    {
+        Auth::guard(Role::PLAYER->value)->logout();
+        $this->redirect(route('auth.player.login'));
+    }
+
     #[Layout('components.layouts.player')]
     public function render()
     {
