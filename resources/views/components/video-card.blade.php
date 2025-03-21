@@ -6,6 +6,12 @@
     video-card
     flex flex-col
     gap-normal
+    bg-light
+    p-very-large
+    rounded-default
+    cursor-pointer
+    hover:brightness-70
+    w-full max-w-140
 ">
     
     <div class="video">
@@ -13,8 +19,9 @@
             preload="metadata"
             class="
                 rounded-default
-                cursor-pointer
-                hover:brightness-50
+                h-74 w-full
+                bg-secundary
+                object-cover
             "
         >
             <source src="/local/{{ $player->video }}">
