@@ -1,0 +1,19 @@
+.video-card .profile {
+    overflow: hidden;
+}
+
+.video-card .profile img {
+    width: var(--text-heading);
+    height: var(--text-heading);
+    border-radius: 50%;
+    border: 2px solid var(--color-dark);
+    object-fit: cover;
+}
+
+.video-card span {
+    width: var(--spacing-small);
+    height: var(--spacing-small);
+    display: inline-block;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+}
