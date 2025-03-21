@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User;
@@ -20,8 +21,18 @@ class Player extends User implements MustVerifyEmail
         'birthday',
     ];
 
+    public function getAge()
+    {
+        $now = new DateTime();
+        $birthday = new DateTime($this->birthday);
+
+        $difference = $now->diff($birthday);
+        return $difference->y;
+    }
+
     public function position()
     {
         return $this->hasOne(Position::class, 'id', 'position_id');
     }
+
 }
