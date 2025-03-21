@@ -5,6 +5,7 @@ main {
 
 main > #content {
     flex-grow: 1;
+    overflow-x: auto;
 }
 
 @media screen and (min-width: 720px) {

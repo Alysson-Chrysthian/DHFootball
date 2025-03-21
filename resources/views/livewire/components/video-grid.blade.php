@@ -10,6 +10,8 @@
         <div class="video-grid">
             @foreach ($players as $player)
                 <x-video-card :player="$player" />
+                <x-video-card :player="$player" />
+                <x-video-card :player="$player" />
             @endforeach
         </div>
     @endif

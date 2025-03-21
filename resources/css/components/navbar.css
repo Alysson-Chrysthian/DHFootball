@@ -8,6 +8,8 @@
     border-radius: var(--radius-default);
     background-color: var(--color-light);
     z-index: 1;
+    position: sticky;
+    bottom: 0px;
 }
 
 .navbar a {
