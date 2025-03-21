@@ -8,7 +8,7 @@
         <x-select
             class="w-full"
             placeholder="Todas as posições"
-            :dark="true"
+            dark
         >
             @foreach ($positions as $position)
                 <option value="{{ $position->id }}">{{ $position->name }}</option>
@@ -18,7 +18,7 @@
         <x-select 
             class="w-full"
             placeholder="Todas as idades"
-            :dark="true"
+            dark
         >
             @foreach ($ages as $age)
                 <option value="{{ $age->value }}">{{ $age->text() }}</option>
