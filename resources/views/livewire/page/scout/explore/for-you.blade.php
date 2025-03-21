@@ -26,4 +26,6 @@
         </x-select>
     </div>
 
+    <livewire:components.video-grid />
+
 </div>

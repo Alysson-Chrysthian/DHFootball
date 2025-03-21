@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/components/image-input.css',
                 'resources/css/components/navbar.css',
                 'resources/css/components/edit-text-input.css',
+                'resources/css/components/video-grid.css',
                 'resources/css/components/video-card.css',
                 //pages styles
                 'resources/css/pages/profile.css',

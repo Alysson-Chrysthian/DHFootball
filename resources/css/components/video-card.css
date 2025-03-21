@@ -2,10 +2,15 @@
     overflow: hidden;
 }
 
-.video-card .profile img {
+.video-card .profile img,
+.video-card .profile path,
+.video-card .profile svg {
     width: var(--text-heading);
     height: var(--text-heading);
     border-radius: 50%;
+}
+
+.video-card .profile img {
     border: 2px solid var(--color-dark);
     object-fit: cover;
 }

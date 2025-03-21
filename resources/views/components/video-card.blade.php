@@ -11,7 +11,7 @@
     rounded-default
     cursor-pointer
     hover:brightness-70
-    w-full max-w-140
+    w-full
 ">
     
     <div class="video">
