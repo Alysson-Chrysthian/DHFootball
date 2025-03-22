@@ -11,11 +11,11 @@ class VideoGrid extends Component
 {
     use WithPagination, WithoutUrlPagination;
 
-    public $customized_players = null;
+    private $players = null;
 
     public function render()
     {
-        $players = $this->customized_players;
+        $players = $this->players;
 
         if ($players == null) 
             $players = Player::with('position')
