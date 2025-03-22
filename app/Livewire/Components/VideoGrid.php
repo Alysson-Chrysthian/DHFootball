@@ -40,6 +40,8 @@ class VideoGrid extends Component
             })
             ->paginate(16);
 
+        $players->setCollection($players->getCollection()->shuffle());
+
         return view('livewire.components.video-grid', [
             'players' => $players,
         ]);
