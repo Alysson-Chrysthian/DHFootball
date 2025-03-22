@@ -9,18 +9,15 @@ use Livewire\Component;
 
 class ForYou extends Component
 {
-    public $positions;
-    public $ages;
-
-    public function mount()
-    {
-        $this->positions = Position::all();
-        $this->ages = Age::cases();
-    }
-
     #[Layout('components.layouts.scout')]
     public function render()
     {
-        return view('livewire.page.scout.explore.for-you');
+        $positions = Position::all();
+        $ages = Age::cases();
+
+        return view('livewire.page.scout.explore.for-you', [
+            'ages' => $ages,
+            'positions' => $positions,
+        ]);
     }
 }

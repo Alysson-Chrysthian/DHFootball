@@ -12,6 +12,8 @@
                 <x-video-card :player="$player" />
             @endforeach
         </div>
+
+        <div class="p-very-large">{{ $players->links() }}</div>
     @endif
 
 </div>

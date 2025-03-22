@@ -4,22 +4,26 @@ namespace App\Livewire\Components;
 
 use App\Models\Player;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 
 class VideoGrid extends Component
 {
-    public $players = null;
+    use WithPagination, WithoutUrlPagination;
 
-    public function mount()
-    {
-        if ($this->players == null) 
-            $this->players = Player::with('position')
-                ->inRandomOrder()
-                ->whereNot('video', null)
-                ->get();
-    }
+    public $customized_players = null;
 
     public function render()
     {
-        return view('livewire.components.video-grid');
+        $players = $this->customized_players;
+
+        if ($players == null) 
+            $players = Player::with('position')
+                ->whereNot('video', null)
+                ->paginate(16);
+
+        return view('livewire.components.video-grid', [
+            'players' => $players,
+        ]);
     }
 }
