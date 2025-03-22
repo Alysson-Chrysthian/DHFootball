@@ -12,12 +12,6 @@ class ForYou extends Component
     #[Layout('components.layouts.scout')]
     public function render()
     {
-        $positions = Position::all();
-        $ages = Age::cases();
-
-        return view('livewire.page.scout.explore.for-you', [
-            'ages' => $ages,
-            'positions' => $positions,
-        ]);
+        return view('livewire.page.scout.explore.for-you');
     }
 }
