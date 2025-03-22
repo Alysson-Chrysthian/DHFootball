@@ -74,6 +74,13 @@ class Profile extends Component
                 'video' => null,
             ]);
         }
+
+        if ($player->thumbnail != null) {
+            Storage::disk('local')->delete($player->thumbnail);
+            $player->update([
+                'thumbnail' => null,
+            ]);
+        }
     }
 
     #[Layout('components.layouts.player')]

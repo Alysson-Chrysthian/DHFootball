@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Trait;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 trait WithUserInfoUpdate 
 {
@@ -16,11 +18,24 @@ trait WithUserInfoUpdate
     public function updateVideo($user)
     {
         $video = $this->video->store(path: 'videos');
+        $thumbnail = 'thumbnails/' . md5(time() . $this->video->getClientOriginalName() . $user->id) . '.png';
+
         if ($user->video)
             Storage::disk('local')->delete($user->video);
 
+        FFMpeg::fromDisk('local')
+            ->open($video)
+            ->getFrameFromSeconds(0.1)
+            ->export()
+            ->toDisk('local')
+            ->save($thumbnail);
+
+        if ($user->thumbnail)
+            Storage::disk('local')->delete($user->thumbnail);
+
         $user->update([
             'video' => $video,
+            'thumbnail' => $thumbnail,
         ]);
     }
 

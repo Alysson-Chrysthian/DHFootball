@@ -21,6 +21,8 @@ return new class extends Migration
                 ->nullable();
             $table->string('video')
                 ->nullable();
+            $table->string('thumbnail')
+                ->nullable();
             $table->timestamp('birthday');
             $table->timestamp('email_verified_at')
                 ->nullable();

@@ -11,6 +11,8 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
+use Mockery;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 use Tests\TestCase;
 
 class ProfileTest extends TestCase
@@ -75,17 +77,30 @@ class ProfileTest extends TestCase
 
     public function test_can_update_video()
     {
-        Storage::fake('local');
+        Storage::fake();
 
-        $video = UploadedFile::fake()->create('video.mp4', 50*1024, 'mp4');
+        $ffmpegMock = Mockery::mock('alias:' . FFMpeg::class);
 
+        $ffmpegMock->shouldReceive(
+            'fromDisk', 
+            'open', 
+            'getFrameFromSeconds',
+            'export',
+            'toDisk',
+            'save', 
+        )->andReturnSelf();
+
+        $this->app->instance(FFMpeg::class, $ffmpegMock);
+    
         Livewire::test(Profile::class)
-            ->set('video', $video)
+            ->set('video', UploadedFile::fake()->create('video.mp4', 10000, 'mp4'))
             ->call('updateVideo', $this->user);
 
         $this->user->fresh();
 
         $this->assertNotNull($this->user->video);
+        $this->assertNotNull($this->user->thumbnail);
+
     }
 
     public function test_can_delete_video()
@@ -95,10 +110,14 @@ class ProfileTest extends TestCase
         Player::where('video', null)->delete();
 
         $video = UploadedFile::fake()->create('video.mp4', 10000, 'mp4');
+        $thumbnail = UploadedFile::fake()->image('image.png');
+
         Storage::put('videos/video.mp4', file_get_contents($video->getPathname()));
+        Storage::put('thumbnails/image.png', file_get_contents($thumbnail->getPathname()));
 
         Player::factory()->create([
             'video' => 'videos/video.mp4',
+            'thumbnail' => 'thumbnails/image.png',
         ]);
 
         $player = Player::whereNot('video', null)->first();
@@ -107,8 +126,14 @@ class ProfileTest extends TestCase
     
         Livewire::test(Profile::class)
             ->call('deleteVideo');
-            
+        
+        $player->fresh();
+
+        $this->assertNull($player->video);
+        $this->assertNull($player->thumbnail);
+        
         Storage::assertMissing('videos/video.mp4');
+        Storage::assertMissing('thumbnails/image.png');
     }
 
     public function test_is_not_throwing_an_error_when_file_not_exists()

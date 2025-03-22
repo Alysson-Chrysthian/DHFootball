@@ -115,6 +115,7 @@
                     bg-secundary
                     w-full h-full
                 "    
+                poster="/local/{{ auth()->user()->thumbnail }}"
                 id="video-player"
             >
                 <source src="/local/{{ auth()->user()->video }}">

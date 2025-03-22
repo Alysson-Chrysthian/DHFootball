@@ -15,8 +15,8 @@
 ">
     
     <div class="video">
-        <video 
-            preload="metadata"
+        <img 
+            src="/local/{{ $player->thumbnail }}"
             class="
                 rounded-default
                 h-74 w-full
@@ -24,8 +24,6 @@
                 object-cover
             "
         >
-            <source src="/local/{{ $player->video }}">
-        </video>
     </div>
 
     <div class="

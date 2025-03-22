@@ -19,6 +19,7 @@ class Player extends User implements MustVerifyEmail
         'video',
         'avatar',
         'birthday',
+        'thumbnail',
     ];
 
     public function getAge()
