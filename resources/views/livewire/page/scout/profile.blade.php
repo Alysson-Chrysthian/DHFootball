@@ -57,3 +57,13 @@
     </form>
 
 </div>
+
+@pushOnce('scripts')
+    @script
+        <script>
+            $wire.on('avatar-updated', () => {
+                location.reload();
+            })
+        </script>
+    @endscript
+@endPushOnce

@@ -62,5 +62,7 @@ trait WithUserInfoUpdate
         $user->update([
             'avatar' => $avatar
         ]);
+
+        $this->dispatch('avatar-updated');
     }
 }

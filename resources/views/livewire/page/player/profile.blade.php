@@ -140,6 +140,10 @@
             document.querySelector('#video-player').addEventListener('click', (e) => {
                 e.stopPropagation();
             });
+
+            $wire.on('avatar-updated', () => {
+                location.reload();
+            })
         </script>
     @endscript
 @endPushOnce
