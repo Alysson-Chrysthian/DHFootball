@@ -42,6 +42,7 @@ class VideoGrid extends Component
                     Carbon::now()->subYears($ageFilter->range()[0])->toDateTimeString(),
                 ]);
             })
+            ->orderBy('created_at')
             ->paginate(16);
 
         $players->setCollection($players->getCollection()->shuffle());
