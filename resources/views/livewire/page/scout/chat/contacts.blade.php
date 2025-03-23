@@ -37,4 +37,52 @@
         </div>
     </div>
 
+    <div class="
+        flex flex-col
+    ">
+        @foreach ($contacts as $contact)
+            <div class="
+                border-t-1 border-dark
+                flex items-center justify-between
+                gap-normal p-very-large
+                bg-light
+                hover:brightness-80 
+                cursor-pointer
+                w-full
+            ">
+                <div class="
+                    flex items-center
+                    gap-normal           
+                ">
+                    <x-profile :user="$contact->player" />
+                    <div>
+                        <p
+                            class="
+                                flex items-center gap-normal
+                            "
+                        >{{ $contact->player->name }} <span class="circle"></span> {{ $contact->player->getAge() }}</p>
+                        <p class="text-shadow">Nenhuma mensagem</p>
+                    </div>
+                </div>
+                <div class="justify-self-end">
+                    <x-select>
+                        @foreach ($status as $statu)
+                            <option value="{{ $statu->value }}"
+                                @if ($statu->value == $contact->status)
+                                    @selected(true)
+                                @endif
+                            >
+                                @if ($statu->value == 1)
+                                    Em analise
+                                @elseif ($statu->value == 2)
+                                    Selecionado
+                                @endif
+                            </option>
+                        @endforeach
+                    </x-select>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 </div>

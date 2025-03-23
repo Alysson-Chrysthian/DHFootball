@@ -4,6 +4,7 @@ namespace App\Livewire\Page\Scout\Chat;
 
 use App\Enums\Age;
 use App\Enums\Role;
+use App\Enums\Status;
 use App\Models\Position;
 use App\Models\ScoutPlayer;
 use Illuminate\Contracts\Database\Query\Builder;
@@ -49,6 +50,7 @@ class Contacts extends Component
 
         return view('livewire.page.scout.chat.contacts', [
             'contacts' => $contacts,
+            'status' => Status::cases(),
         ]);
     }
 }

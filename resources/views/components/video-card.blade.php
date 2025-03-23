@@ -37,7 +37,7 @@
                 <p 
                     class="
                         flex items-center
-                        gap-small
+                        gap-normal
                     "
                 >{{ $player->name }} <span></span> {{ $player->getAge() }}</p>
             </div>
