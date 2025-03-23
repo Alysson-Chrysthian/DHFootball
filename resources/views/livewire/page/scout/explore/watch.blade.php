@@ -46,8 +46,14 @@
         <div>
             <x-button
                 type="button"
-            >
-                Selecionar jogador
+                wire:target="selectPlayer"
+                wire:click="selectPlayer"
+            >   
+                @if (!$scout_player_exists)
+                    Selecionar jogador
+                @else 
+                    <x-ri-verified-badge-line class="w-6 h-6" />
+                @endif
             </x-button>
         </div>
     </div>
