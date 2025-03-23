@@ -8,11 +8,12 @@ use App\Models\Position;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
 class VideoGrid extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     public $positions, $ages;
     public $positionFilter, $ageFilter;
