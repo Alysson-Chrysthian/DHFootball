@@ -3,13 +3,19 @@
 namespace Tests\Feature\Scout;
 
 use App\Enums\Age;
+use App\Enums\Role;
+use App\Enums\Status;
 use App\Livewire\Components\VideoGrid;
+use App\Models\Club;
 use App\Models\Player;
 use App\Models\Position;
+use App\Models\Scout;
+use App\Models\ScoutPlayer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Livewire;
@@ -24,7 +30,8 @@ class VideoGridTest extends TestCase
         parent::setUp();
         Position::factory()->create(['id' => 1, 'name' => 'zagueiro']);
         Position::factory()->create(['id' => 2, 'name' => 'centro-avante']);
-    
+        Club::factory()->create();
+
         Storage::fake();
 
         $video1 = UploadedFile::fake()->create('video1.mp4', 10000, 'mp4');
@@ -46,6 +53,8 @@ class VideoGridTest extends TestCase
             'email' => Str::random(10) . '@gmail.com',
         ]);
 
+        $scout = Scout::factory()->create();
+        Auth::guard(Role::SCOUT->value)->login($scout);
     }
 
     public function test_can_render()
@@ -117,6 +126,18 @@ class VideoGridTest extends TestCase
         $players = $component->viewData('players');
 
         $this->assertCount(11, $players);
+    }
+
+    public function test_is_not_returning_selected_players()
+    {
+        ScoutPlayer::factory()->create([
+            'status' => Status::SELECTED->value,
+        ]);
+
+        $component = Livewire::test(VideoGrid::class);
+        $players = $component->viewData('players');
+
+        $this->assertCount(1, $players);
     }
 
 }
