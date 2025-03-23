@@ -14,4 +14,14 @@ class ScoutPlayer extends Model
         'player_id',
         'scout_id',
     ];
+
+    public function player()
+    {
+        return $this->belongsTo(Player::class);
+    }
+
+    public function scout() 
+    {
+        return $this->belongsTo(Scout::class);
+    }
 }

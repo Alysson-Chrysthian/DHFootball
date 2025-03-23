@@ -33,7 +33,7 @@ class Player extends User implements MustVerifyEmail
 
     public function position()
     {
-        return $this->hasOne(Position::class, 'id', 'position_id');
+        return $this->belongsTo(Position::class);
     }
 
 }
