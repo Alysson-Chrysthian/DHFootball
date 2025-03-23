@@ -7,7 +7,7 @@
 
     <div id="content">{{ $slot }}</div>
     <x-layouts.components.navbar>
-        <a href="#">
+        <a href="{{ route('player.chat') }}">
             <div>
                 <x-ri-chat-2-line />
             </div>

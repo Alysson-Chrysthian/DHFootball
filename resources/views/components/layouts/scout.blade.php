@@ -13,7 +13,7 @@
             </div>
             <p>Explorar</p>
         </a>
-        <a href="#" wire:navigate>
+        <a href="{{ route('scout.contacts') }}">
             <div>
                 <x-ri-chat-2-line />
             </div>
