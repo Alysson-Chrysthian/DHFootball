@@ -82,5 +82,7 @@ Route::prefix('/scout')
 
         Route::get('/explore', App\Livewire\Page\Scout\Explore\ForYou::class)
             ->name('explore');
+        Route::get('/explore/watch/{id}', App\Livewire\Page\Scout\Explore\Watch::class)
+            ->name('watch');
 
     });

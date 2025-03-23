@@ -36,7 +36,9 @@
     @else
         <div class="video-grid">
             @foreach ($players as $player)
-                <x-video-card :player="$player" />
+                <a href="{{ route('scout.watch', ['id' => $player->id]) }}">
+                    <x-video-card :player="$player" />
+                </a>
             @endforeach
         </div>
 
