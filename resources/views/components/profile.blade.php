@@ -3,9 +3,9 @@
 @endPushOnce
 
 <div class="profile">
-    @if ($player->avatar)
+    @if ($user->avatar)
     <figure>
-        <img src="/local/{{ $player->avatar }}" alt="{{ $player->name }}">
+        <img src="/local/{{ $user->avatar }}" alt="{{ $user->name }}">
     </figure>
     @else
         <x-css-profile />

@@ -31,7 +31,7 @@
         items-center
         gap-normal
     ">
-        <x-profile :player="$player" />
+        <x-profile :user="$player" />
         <div>
             <div>
                 <p 

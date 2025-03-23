@@ -32,7 +32,7 @@
             flex items-center
             gap-normal
         ">
-            <x-profile :player="$player" />
+            <x-profile :user="$player" />
             <p class="
                 flex items-center gap-normal
             ">{{ $player->name }} <span></span> {{ $player->getAge() }}</p>
