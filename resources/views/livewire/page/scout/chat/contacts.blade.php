@@ -6,6 +6,7 @@
     ">
         <x-search-input
             placeholder="Pesquisa..."
+            wire:model.live="search"
         />
         
         <div class="
