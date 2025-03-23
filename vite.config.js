@@ -16,8 +16,10 @@ export default defineConfig({
                 'resources/css/components/edit-text-input.css',
                 'resources/css/components/video-grid.css',
                 'resources/css/components/video-card.css',
+                'resources/css/components/profile.css',
                 //pages styles
                 'resources/css/pages/profile.css',
+                'resources/css/pages/watch.css',
                 //layouts scripts 
                 'resources/js/app.js',
             ],

@@ -16,7 +16,7 @@ class VideoGrid extends Component
     use WithPagination, WithoutUrlPagination;
 
     public $positions, $ages;
-    public $positionFilter, $ageFilter;
+    public $positionFilter, $ageFilter, $except;
 
     public function mount() 
     {
@@ -30,6 +30,9 @@ class VideoGrid extends Component
             ->whereNot('video', null)
             ->when($this->positionFilter, function (Builder $query) {
                 $query->where('position_id', $this->positionFilter);
+            })
+            ->when($this->except, function (Builder $query) {
+                $query->whereNot('id', $this->except);
             })
             ->when($this->ageFilter, function (Builder $query) {
                 $ageFilter = Age::from($this->ageFilter);

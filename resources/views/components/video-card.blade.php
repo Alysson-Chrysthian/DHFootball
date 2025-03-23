@@ -31,16 +31,7 @@
         items-center
         gap-normal
     ">
-        <div class="profile">
-            @if ($player->avatar)
-                <figure>
-                    <img src="/local/{{ $player->avatar }}" alt="{{ $player->name }}">
-                </figure>
-            @else
-                <x-css-profile />
-            @endif
-        </div>
-
+        <x-profile :player="$player" />
         <div>
             <div>
                 <p 

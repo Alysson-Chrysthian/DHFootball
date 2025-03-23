@@ -1,0 +1,16 @@
+.profile {
+    overflow: hidden;
+}
+
+.profile img,
+.profile path,
+.profile svg {
+    width: var(--text-heading);
+    height: var(--text-heading);
+    border-radius: 50%;
+}
+
+.profile img {
+    border: 2px solid var(--color-dark);
+    object-fit: cover;
+}

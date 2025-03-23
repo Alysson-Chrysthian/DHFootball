@@ -1,0 +1,7 @@
+.video-player .profile span {
+    width: var(--spacing-small);
+    height: var(--spacing-small);
+    display: inline-block;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+}
