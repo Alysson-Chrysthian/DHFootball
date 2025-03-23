@@ -72,11 +72,7 @@
                                     @selected(true)
                                 @endif
                             >
-                                @if ($statu->value == 1)
-                                    Em analise
-                                @elseif ($statu->value == 2)
-                                    Selecionado
-                                @endif
+                                {{ $statu->text() }}
                             </option>
                         @endforeach
                     </x-select>
