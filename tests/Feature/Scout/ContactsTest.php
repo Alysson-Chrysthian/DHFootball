@@ -174,4 +174,22 @@ class ContactsTest extends TestCase
         $this->assertCount(1, ScoutPlayer::where('player_id', $this->player->id)->get());
     }
 
+    public function test_can_change_player_stauts_to_in_analisys()
+    {
+        $this->contact->delete();
+        $contact = ScoutPlayer::factory()->create([
+            'player_id' => $this->player->id,
+            'scout_id' => $this->scout->id,
+            'status' => Status::SELECTED->value,
+        ]);
+
+        Livewire::test(Contacts::class)
+            ->set('selectedStatus.' . $contact->id, Status::IN_ANALISYS->value)
+            ->call('changeStatus', $contact->toArray());
+
+        $contact = ScoutPlayer::find($contact->id);
+
+        $this->assertEquals(Status::IN_ANALISYS->value, $contact->status);
+    }
+
 }

@@ -40,7 +40,7 @@ class Contacts extends Component
             case Status::SELECTED->value:
                 $this->selectContact($contact);
                 break;
-            case Status::IN_ANALISYS:
+            case Status::IN_ANALISYS->value:
                 $this->inAnilisysContact($contact);
                 break;
             default:
@@ -69,7 +69,9 @@ class Contacts extends Component
 
     public function inAnilisysContact($contact)
     {
-        //
+        $contact->update([
+            'status' => Status::IN_ANALISYS->value,
+        ]);
     }
 
     #[Layout('components.layouts.scout')]
