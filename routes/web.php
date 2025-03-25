@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Models\Player;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -93,3 +94,6 @@ Route::prefix('/scout')
             ->name('contacts');
 
     });
+
+Route::get('/status/accept/{id}/{hash}', [ContactController::class, 'changePlayerStatusToSelected'])
+    ->name('status.accept');

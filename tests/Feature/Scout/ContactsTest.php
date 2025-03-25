@@ -5,6 +5,7 @@ namespace Tests\Feature\Scout;
 use App\Enums\Age;
 use App\Enums\Role;
 use App\Enums\Status;
+use App\Http\Controllers\ContactController;
 use App\Livewire\Page\Scout\Chat\Contacts;
 use App\Models\Club;
 use App\Models\Player;
@@ -12,12 +13,15 @@ use App\Models\Position;
 use App\Models\Scout;
 use App\Models\ScoutPlayer;
 use App\Notifications\Contact\DeleteContact;
+use App\Notifications\Contact\PlayerAcceptYourRequest;
+use App\Notifications\Contact\PlayerSelectedByOtherScout;
 use App\Notifications\Contact\RequestChangeStatusToPlayer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class ContactsTest extends TestCase
 {
@@ -137,6 +141,37 @@ class ContactsTest extends TestCase
             ->call('changeStatus', $this->contact->toArray());
 
         Notification::assertSentTo($this->player, RequestChangeStatusToPlayer::class);
+    }
+
+    public function test_player_can_accept_request_to_be_selected()
+    {
+        Notification::fake();
+
+        for ($i = 0; $i < 10; $i++) {
+            $scout = Scout::factory()->create([
+                'email' => Str::random(10) . '@gmail.com',
+            ]);
+            $player = Player::factory()->create([
+                'email' => Str::random(10) . '@gmail.com',
+            ]);
+            ScoutPlayer::factory()->create([
+                'scout_id' => $scout->id,
+                'player_id' => $player->id,
+                'status' => Status::IN_ANALISYS->value,
+            ]);
+        }
+
+        $contactController = new ContactController;
+        $contactController->changePlayerStatusToSelected($this->contact->id, sha1($this->player->email));
+
+        $contact = ScoutPlayer::find($this->contact->id);
+
+        Notification::assertSentTimes(PlayerSelectedByOtherScout::class, 10);
+        Notification::assertSentTo($this->scout, PlayerAcceptYourRequest::class);
+        Notification::assertNotSentTo($this->scout, PlayerSelectedByOtherScout::class);
+
+        $this->assertEquals(Status::SELECTED->value, $contact->status);
+        $this->assertCount(1, ScoutPlayer::where('player_id', $this->player->id)->get());
     }
 
 }

@@ -8,6 +8,7 @@ use App\Models\Player;
 use App\Models\ScoutPlayer;
 use App\Notifications\Contact\ChooseContact;
 use App\Notifications\Contact\DeleteContact;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -20,8 +21,14 @@ class Watch extends Component
 
     public function mount()
     {
-        $this->player = Player::whereNot('video', null)
-            ->where('id', $this->id)
+        $this->player = Player::select('players.*')
+            ->leftJoin('scout_player', 'scout_player.player_id', '=', 'players.id')
+            ->where(function (Builder $query) {
+                $query->whereNull('scout_player.status')
+                    ->orWhereNot('scout_player.status', Status::SELECTED->value);
+            })
+            ->whereNot('video', null)
+            ->where('players.id', $this->id)
             ->first();
         
         if ($this->player == null) 

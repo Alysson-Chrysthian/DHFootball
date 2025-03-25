@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PlayerSelectedByOtherScout extends Notification implements ShouldQueue
+class PlayerAcceptYourRequest extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -16,7 +16,6 @@ class PlayerSelectedByOtherScout extends Notification implements ShouldQueue
      */
     public function __construct(
         public $player,
-        public $scout,
     )
     {}
 
@@ -35,9 +34,8 @@ class PlayerSelectedByOtherScout extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)->markdown('mail.contact.player-selected-by-other-scout', [
+        return (new MailMessage)->markdown('mail.contact.player-accept-your-request', [
             'player' => $this->player,
-            'scout' => $this->scout,
         ]);
     }
 
