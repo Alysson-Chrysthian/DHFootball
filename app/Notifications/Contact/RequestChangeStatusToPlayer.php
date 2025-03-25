@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class RequestChangeStatusToPlayer extends Notification
+class RequestChangeStatusToPlayer extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -17,7 +17,7 @@ class RequestChangeStatusToPlayer extends Notification
     public function __construct(
         public $player,
         public $scout,
-        public $status,
+        public $contact,
     )
     {}
 
@@ -39,7 +39,7 @@ class RequestChangeStatusToPlayer extends Notification
         return (new MailMessage)->markdown('mail.contact.request-change-status-to-player', [
             'player' => $this->player,
             'scout' => $this->scout,
-            'status' => $this->status,
+            'contact' => $this->contact,
         ]);
     }
 

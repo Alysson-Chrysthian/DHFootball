@@ -8,6 +8,7 @@ use App\Enums\Status;
 use App\Models\Position;
 use App\Models\ScoutPlayer;
 use App\Notifications\Contact\DeleteContact;
+use App\Notifications\Contact\RequestChangeStatusToPlayer;
 use App\Notifications\Contact\SelectContact;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Carbon;
@@ -58,7 +59,12 @@ class Contacts extends Component
 
     public function selectContact($contact) 
     {
-        //
+        $player = $contact->player;
+        $scout = $contact->scout;
+
+        $player->notify(new RequestChangeStatusToPlayer($player, $scout, $contact));
+        session()->flash('success', 'Solicitação enviada para o jogador, aguarde sua resposta');
+        $this->redirect(route('scout.contacts'));
     }
 
     public function inAnilisysContact($contact)

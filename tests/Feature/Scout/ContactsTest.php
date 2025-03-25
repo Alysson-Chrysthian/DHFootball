@@ -12,6 +12,7 @@ use App\Models\Position;
 use App\Models\Scout;
 use App\Models\ScoutPlayer;
 use App\Notifications\Contact\DeleteContact;
+use App\Notifications\Contact\RequestChangeStatusToPlayer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
@@ -125,6 +126,17 @@ class ContactsTest extends TestCase
 
         $this->assertCount(0, ScoutPlayer::all());
         Notification::assertSentTo($this->player, DeleteContact::class);
+    }
+
+    public function test_can_send_request_to_select_player()
+    {
+        Notification::fake();
+
+        Livewire::test(Contacts::class)
+            ->set('selectedStatus.' . $this->contact->id, Status::SELECTED->value)
+            ->call('changeStatus', $this->contact->toArray());
+
+        Notification::assertSentTo($this->player, RequestChangeStatusToPlayer::class);
     }
 
 }
