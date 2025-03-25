@@ -4,15 +4,17 @@ namespace Tests\Feature\Scout;
 
 use App\Enums\Age;
 use App\Enums\Role;
+use App\Enums\Status;
 use App\Livewire\Page\Scout\Chat\Contacts;
 use App\Models\Club;
 use App\Models\Player;
 use App\Models\Position;
 use App\Models\Scout;
 use App\Models\ScoutPlayer;
+use App\Notifications\Contact\DeleteContact;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -22,6 +24,7 @@ class ContactsTest extends TestCase
 
     public $player;
     public $scout;
+    public $contact;
 
     public function setUp() : void 
     {
@@ -33,7 +36,7 @@ class ContactsTest extends TestCase
         Club::factory()->create();
         $this->player = Player::factory()->create(['name' => 'alysson']);
         $this->scout = Scout::factory()->create();
-        ScoutPlayer::factory()->create();
+        $this->contact = ScoutPlayer::factory()->create();
     }
 
     public function test_query_for_contacts_is_working()
@@ -110,6 +113,18 @@ class ContactsTest extends TestCase
         $contacts = $component->viewData('contacts');
 
         $this->assertCount(0, $contacts);
+    }
+
+    public function test_can_delete_contact()
+    {
+        Notification::fake();
+
+        Livewire::test(Contacts::class)
+            ->set('selectedStatus.' . $this->contact->id, Status::DELETE->value)
+            ->call('changeStatus', $this->contact->toArray());
+
+        $this->assertCount(0, ScoutPlayer::all());
+        Notification::assertSentTo($this->player, DeleteContact::class);
     }
 
 }
