@@ -40,6 +40,10 @@
     <div class="
         flex flex-col
     ">
+        @if ($contacts->isEmpty())
+            <p class="text-center text-shadow">Nenhum contato encontrado</p>
+        @endif
+
         @foreach ($contacts as $contact)
             <div class="
                 border-t-1 border-dark
@@ -65,15 +69,12 @@
                     </div>
                 </div>
                 <div class="justify-self-end">
-                    <x-select>
+                    <x-select
+                        wire:model.live="selectedStatus.{{ $contact->id }}"
+                        wire:change="changeStatus({{ $contact }})"
+                    >
                         @foreach ($status as $statu)
-                            <option value="{{ $statu->value }}"
-                                @if ($statu->value == $contact->status)
-                                    @selected(true)
-                                @endif
-                            >
-                                {{ $statu->text() }}
-                            </option>
+                            <option value="{{ $statu->value }}">{{ $statu->text() }}</option>
                         @endforeach
                     </x-select>
                 </div>
