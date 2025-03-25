@@ -15,7 +15,8 @@ class DeleteContact extends Notification implements ShouldQueue
      * Create a new notification instance.
      */
     public function __construct(
-        public $contact
+        public $player,
+        public $scout,
     ) {}
 
     /**
@@ -34,8 +35,8 @@ class DeleteContact extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)->markdown('mail.contact.delete-contact', [
-            'player' => $this->contact->player,
-            'scout' => $this->contact->scout,
+            'player' => $this->player,
+            'scout' => $this->scout,
         ]);
     }
 
