@@ -10,8 +10,11 @@ use App\Models\Player;
 use App\Models\Position;
 use App\Models\Scout;
 use App\Models\ScoutPlayer;
+use App\Notifications\Contact\ChooseContact;
+use App\Notifications\Contact\DeleteContact;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -25,6 +28,7 @@ class WatchTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        Notification::fake();
 
         Position::factory()->create();
         Club::factory()->create();
@@ -49,7 +53,7 @@ class WatchTest extends TestCase
             Status::IN_ANALISYS->value, 
             ScoutPlayer::where('player_id', $this->player->id)->first()->status
         );
-        $this->assertTrue(session()->has('success'));
+        Notification::assertSentTo($this->player, ChooseContact::class);
     }
 
     public function test_cannot_select_player_twice()
@@ -65,8 +69,8 @@ class WatchTest extends TestCase
         Livewire::test(Watch::class, ['id' => $this->player->id])
             ->call('selectPlayer');
 
-        $this->assertEquals(1, ScoutPlayer::count());
-        $this->assertFalse(session()->has('success'));
+        $this->assertEquals(0, ScoutPlayer::count());
+        Notification::assertSentTo($this->player, DeleteContact::class);
     }
 
 }

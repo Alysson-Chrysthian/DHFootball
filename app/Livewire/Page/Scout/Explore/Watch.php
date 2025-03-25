@@ -6,6 +6,8 @@ use App\Enums\Role;
 use App\Enums\Status;
 use App\Models\Player;
 use App\Models\ScoutPlayer;
+use App\Notifications\Contact\ChooseContact;
+use App\Notifications\Contact\DeleteContact;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -30,20 +32,25 @@ class Watch extends Component
     {
         $scoutPlayer = ScoutPlayer::where('scout_id', Auth::guard(Role::SCOUT->value)->id())
             ->where('player_id', $this->id)
-            ->exists();
+            ->first();
 
-        if ($scoutPlayer) 
+        if ($scoutPlayer) {
+            $player = $scoutPlayer->player;
+            $player->notify(new DeleteContact($player, $scoutPlayer->scout));
+            $scoutPlayer->delete();
             return;
-    
+        }
+        
         ScoutPlayer::create([
             'status' => Status::IN_ANALISYS->value,
             'scout_id' => Auth::guard(Role::SCOUT->value)->id(),
             'player_id' => $this->id,
         ]);
+    
+        $player = Player::find($this->id);
+        $scout = Auth::guard(Role::SCOUT->value)->user();
 
-        session()->flash('success', 'Jogador selecionado com sucesso');
-
-        $this->redirect(route('scout.watch', ['id' => $this->id]), true);
+        $player->notify(new ChooseContact($player, $scout));
     }
 
     #[Layout('components.layouts.scout')]
