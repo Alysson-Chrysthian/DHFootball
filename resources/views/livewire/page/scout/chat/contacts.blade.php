@@ -65,7 +65,13 @@
                                 flex items-center gap-normal
                             "
                         >{{ $contact->player->name }} <span class="circle"></span> {{ $contact->player->getAge() }}</p>
-                        <p class="text-shadow">Nenhuma mensagem</p>
+                        <p class="text-shadow">
+                            @if ($contact->getLastMessageSent())
+                                {{ $contact->getLastMessageSent()->getFormatedMessage() }}
+                            @else
+                                Nenhuma mensage
+                            @endif
+                        </p>
                     </div>
                 </div>
                 <div class="justify-self-end">

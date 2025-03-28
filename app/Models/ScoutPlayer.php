@@ -26,4 +26,12 @@ class ScoutPlayer extends Model
     {
         return $this->belongsTo(Scout::class);
     }
+
+    public function getLastMessageSent()
+    {
+        return Chat::where('player_id', $this->player_id)
+            ->where('scout_id', $this->scout_id)
+            ->orderBy('created_at', 'DESC')
+            ->first();
+    }
 }
