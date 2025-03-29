@@ -54,7 +54,7 @@
                                 class="
                                     flex items-center gap-normal
                                 "
-                            >{{ $contact->scout->name }} <span class="circle"></span> <img src="/local/{{ $contact->scout->getClubIcon() }}" class="club_icon"></p>
+                            >{{ $contact->scout->name }} <span class="circle"></span> <img src="/local/{{ $contact->scout->getClubIcon() }}" alt="{{ $contact->scout->name }}_club_icon" class="club-icon"></p>
                             <p class="text-shadow">
                                 @if ($contact->getLastMessageSent())
                                     {{ $contact->getLastMessageSent()->getFormatedMessage() }}

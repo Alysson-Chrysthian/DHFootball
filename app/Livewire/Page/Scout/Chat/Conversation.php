@@ -2,11 +2,21 @@
 
 namespace App\Livewire\Page\Scout\Chat;
 
+use App\Models\ScoutPlayer;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Conversation extends Component
 {
+    public $player;
+
+    public function mount($id)
+    {
+        $this->player = ScoutPlayer::with('player')
+            ->find($id)
+            ->player;
+    }
+
     #[Layout('components.layouts.scout')]
     public function render()
     {
