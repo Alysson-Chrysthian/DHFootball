@@ -78,6 +78,7 @@
                     <x-select
                         wire:model.live="selectedStatus.{{ $contact->id }}"
                         wire:change="changeStatus({{ $contact }})"
+                        wire:key="{{ $contact->id }}"
                     >
                         @foreach ($status as $statu)
                             <option value="{{ $statu->value }}">{{ $statu->text() }}</option>

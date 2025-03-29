@@ -49,8 +49,6 @@ class Contacts extends Component
             default:
                 return;
         }
-
-        $this->redirect(route('scout.contacts', ['search' => $this->search]), true);
     }
 
     public function deleteContact($contact) 
