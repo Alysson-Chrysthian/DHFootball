@@ -73,6 +73,8 @@ Route::prefix('/player')
             ->name('profile');
 
         Route::get('/chat', App\Livewire\Page\Player\Chat\Contacts::class)
+            ->name('contacts');
+        Route::get('/chat/conversation/{id}', App\Livewire\Page\Player\Chat\Conversation::class)
             ->name('chat');
 
     });
@@ -92,6 +94,8 @@ Route::prefix('/scout')
 
         Route::get('/chat', App\Livewire\Page\Scout\Chat\Contacts::class)
             ->name('contacts');
+        Route::get('/chat/conversation/{id}', App\Livewire\Page\Scout\Chat\Conversation::class)
+            ->name('chat');
 
     });
 

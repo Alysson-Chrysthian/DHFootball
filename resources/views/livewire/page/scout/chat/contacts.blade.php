@@ -45,47 +45,49 @@
         @endif
 
         @foreach ($contacts as $contact)
-            <div class="
-                border-t-1 border-dark
-                flex items-center justify-between
-                gap-normal p-very-large
-                bg-light
-                hover:brightness-80 
-                cursor-pointer
-                w-full
-            ">
+            <a href="{{ route('scout.chat', ['id' => $contact->id]) }}">
                 <div class="
-                    flex items-center
-                    gap-normal           
+                    border-t-1 border-dark
+                    flex items-center justify-between
+                    gap-normal p-very-large
+                    bg-light
+                    hover:brightness-80
+                    cursor-pointer
+                    w-full
                 ">
-                    <x-profile :user="$contact->player" />
-                    <div>
-                        <p
-                            class="
-                                flex items-center gap-normal
-                            "
-                        >{{ $contact->player->name }} <span class="circle"></span> {{ $contact->player->getAge() }}</p>
-                        <p class="text-shadow">
-                            @if ($contact->getLastMessageSent())
-                                {{ $contact->getLastMessageSent()->getFormatedMessage() }}
-                            @else
-                                Nenhuma mensage
-                            @endif
-                        </p>
+                    <div class="
+                        flex items-center
+                        gap-normal
+                    ">
+                        <x-profile :user="$contact->player" />
+                        <div>
+                            <p
+                                class="
+                                    flex items-center gap-normal
+                                "
+                            >{{ $contact->player->name }} <span class="circle"></span> {{ $contact->player->getAge() }}</p>
+                            <p class="text-shadow">
+                                @if ($contact->getLastMessageSent())
+                                    {{ $contact->getLastMessageSent()->getFormatedMessage() }}
+                                @else
+                                    Nenhuma mensage
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                    <div class="justify-self-end">
+                        <x-select
+                            wire:model.live="selectedStatus.{{ $contact->id }}"
+                            wire:change="changeStatus({{ $contact }})"
+                            wire:key="{{ $contact->id }}"
+                        >
+                            @foreach ($status as $statu)
+                                <option value="{{ $statu->value }}">{{ $statu->text() }}</option>
+                            @endforeach
+                        </x-select>
                     </div>
                 </div>
-                <div class="justify-self-end">
-                    <x-select
-                        wire:model.live="selectedStatus.{{ $contact->id }}"
-                        wire:change="changeStatus({{ $contact }})"
-                        wire:key="{{ $contact->id }}"
-                    >
-                        @foreach ($status as $statu)
-                            <option value="{{ $statu->value }}">{{ $statu->text() }}</option>
-                        @endforeach
-                    </x-select>
-                </div>
-            </div>
+            </a>
         @endforeach
     </div>
 
