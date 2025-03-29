@@ -10,9 +10,11 @@ use App\Models\Player;
 use App\Models\Position;
 use App\Models\Scout;
 use App\Models\ScoutPlayer;
+use App\Notifications\Contact\PlayerDesist;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -103,6 +105,19 @@ class ContactsTest extends TestCase
         $contacts = $component->viewData('contacts');
 
         $this->assertCount(0, $contacts);
+    }
+
+    public function test_player_can_delete_contact()
+    {
+        Notification::fake();
+
+        Auth::guard(Role::PLAYER->value)->login($this->player);
+
+        Livewire::test(Contacts::class)
+            ->call('deleteContact', ScoutPlayer::all()->first()->id);
+
+        Notification::assertSentTo($this->scout, PlayerDesist::class);
+        $this->assertCount(0, ScoutPlayer::all());
     }
 
 }

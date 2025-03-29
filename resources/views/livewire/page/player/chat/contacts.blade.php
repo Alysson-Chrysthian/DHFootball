@@ -63,6 +63,18 @@
                         </p>
                     </div>
                 </div>
+
+                <div 
+                    class="
+                        shadow-default p-small rounded-default
+                        hover:bg-secundary 
+                        hover:text-light
+                    "
+                    wire:click="deleteContact({{ $contact->id }})"
+                    wire:key="{{ $contact->id }}"
+                >
+                    Excluir
+                </div>
             </div>
         @endforeach
     </div>

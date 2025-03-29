@@ -5,6 +5,7 @@ namespace App\Livewire\Page\Player\Chat;
 use App\Enums\Role;
 use App\Models\Club;
 use App\Models\ScoutPlayer;
+use App\Notifications\Contact\PlayerDesist;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
@@ -21,6 +22,16 @@ class Contacts extends Component
     public function mount()
     {
         $this->clubs = Club::all();
+    }
+
+    public function deleteContact($id)
+    {
+        $contact = ScoutPlayer::with('scout')->find($id);
+
+        $scout = $contact->scout;
+        $scout->notify(new PlayerDesist(Auth::guard(Role::PLAYER->value)->user()));
+
+        $contact->delete();
     }
 
     #[Layout('components.layouts.player')]
