@@ -46,6 +46,9 @@ class Contacts extends Component
             default:
                 return;
         }
+
+        if ($this->search == '')
+            $this->redirect(route('scout.contacts'), true);
     }
 
     public function deleteContact($contact) 
@@ -98,7 +101,6 @@ class Contacts extends Component
                 ]);
             })
             ->get();
-
         
         foreach ($contacts as $contact)
             $this->selectedStatus[$contact->id] = $contact->status;
@@ -108,4 +110,5 @@ class Contacts extends Component
             'status' => Status::cases(),
         ]);
     }
+
 }
