@@ -14,10 +14,13 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Reactive;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Contacts extends Component
 {
+    #[Url()]
     public $search = '';
     public $selectedStatus = [];
     public $positions, $ages;
@@ -47,8 +50,7 @@ class Contacts extends Component
                 return;
         }
 
-        if ($this->search == '')
-            $this->redirect(route('scout.contacts'), true);
+        $this->redirect(route('scout.contacts', ['search' => $this->search]), true);
     }
 
     public function deleteContact($contact) 
