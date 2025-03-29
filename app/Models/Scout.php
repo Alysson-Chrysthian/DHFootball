@@ -22,4 +22,9 @@ class Scout extends User implements MustVerifyEmail
     {
         return $this->belongsTo(Club::class);
     }
+
+    public function getClubIcon()
+    {
+        return Club::find($this->club_id)->icon;
+    }
 }
