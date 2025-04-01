@@ -1,3 +1,34 @@
-<div>
-    {{-- Stop trying to control. --}}
+@pushOnce('styles')
+    @vite('resources/css/pages/chat.css')
+@endPushOnce
+
+<div class="
+    chat
+    flex flex-col
+    p-very-large
+">
+
+    <div class="
+        grow overflow-auto
+    ">
+        <p class="text-center text-shadow">Envie uma mensagem para iniciar uma conversar</p>
+    </div>
+
+    <div>
+        <form class="
+            flex items-end
+            gap-small
+            bg-light
+            w-full
+        ">
+            <x-text-input
+                class="w-full"
+                placeholder="Mensagem..."
+            />
+            <x-send-button 
+                type="submit"
+            />
+        </form>
+    </div>
+
 </div>

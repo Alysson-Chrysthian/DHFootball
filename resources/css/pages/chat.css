@@ -1,0 +1,20 @@
+#content, #content > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.chat {
+    flex-grow: 1;
+}
+
+.chat > div:nth-child(2) {
+    position: sticky;
+    bottom: 110px;
+}
+
+@media screen and (min-width: 720px) {
+    .chat > div:nth-child(2) {
+        bottom: 0px;
+    }
+}

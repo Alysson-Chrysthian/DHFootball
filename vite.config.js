@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/css/components/video-card.css',
                 'resources/css/components/profile.css',
                 //pages styles
+                'resources/css/pages/chat.css',
                 'resources/css/pages/profile.css',
                 'resources/css/pages/watch.css',
                 //layouts scripts 
