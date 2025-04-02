@@ -23,6 +23,8 @@ export default defineConfig({
                 'resources/css/pages/watch.css',
                 //layouts scripts 
                 'resources/js/app.js',
+                //pages scripts
+                'resources/js/pages/chat.js',
             ],
             refresh: true,
         }),

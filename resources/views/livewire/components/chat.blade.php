@@ -32,3 +32,7 @@
     </div>
 
 </div>
+
+@pushOnce('scripts')
+    @vite('resources/js/pages/chat.js')
+@endPushOnce
