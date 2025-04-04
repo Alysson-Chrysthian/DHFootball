@@ -9,17 +9,29 @@
         p-very-large
     "
     data-contact_id="{{ $contactId }}"
+    data-role="{{ $role }}"
 >
 
     <div class="
+        messages-display
         grow overflow-auto
     ">
-        <p class="text-center text-shadow">Envie uma mensagem para iniciar uma conversar</p>
+        @if ($chats->isEmpty())
+            <p class="text-center text-shadow" id="empty-chat">Envie uma mensagem para iniciar uma conversar</p>
+        @else
+            @foreach ($chats as $chat)
+                <div>
+                    <p>{{ $chat->message }}</p>
+                    <p>{{ $chat->created_at }}</p>
+                </div>
+            @endforeach    
+        @endif
     </div>
 
     <div>
         <form 
             class="
+                send-message-form
                 flex items-end
                 gap-small
                 bg-light
