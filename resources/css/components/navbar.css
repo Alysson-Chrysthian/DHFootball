@@ -47,6 +47,7 @@
 .navbar img {
     border-radius: 50%;
     border: 2px solid var(--color-dark);
+    object-fit: cover;
 }
 
 .navbar .selected-tab img {
