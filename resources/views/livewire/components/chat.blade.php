@@ -20,9 +20,17 @@
             <p class="text-center text-shadow" id="empty-chat">Envie uma mensagem para iniciar uma conversar</p>
         @else
             @foreach ($chats as $chat)
-                <div>
+                <div 
+                    class="
+                        message
+                        @if ($chat->role == $role)
+                            sent
+                        @else
+                            recieved
+                        @endif
+                    ">
                     <p>{{ $chat->message }}</p>
-                    <p>{{ $chat->created_at }}</p>
+                    <p>{{ $chat->created_at->format('d/m/Y - H:i') }}</p>
                 </div>
             @endforeach    
         @endif

@@ -29,9 +29,9 @@ class Chat extends Component
 
         $contact = ScoutPlayer::find($this->contactId);
 
-        $sentAt = Carbon::now()->toDateTimeString();
+        $sentAt = Carbon::now();
 
-        broadcast(new SendMessage($this->message, $this->role, $sentAt, $this->contactId))->toOthers();
+        broadcast(new SendMessage($this->message, $this->role, $sentAt->format('d/m/Y - H:i'), $this->contactId))->toOthers();
 
         $message = $this->message;
         $this->message = '';
@@ -49,7 +49,10 @@ class Chat extends Component
 
     public function render()
     {
-        $this->chats = ModelsChat::all();
+        $contact = ScoutPlayer::find($this->contactId);
+        $this->chats = ModelsChat::where('scout_id', $contact->scout_id)
+            ->where('player_id', $contact->player_id)
+            ->get();
 
         return view('livewire.components.chat');
     }

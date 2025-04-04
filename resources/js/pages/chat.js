@@ -12,7 +12,11 @@ Echo.channel(`send.message.${contactId}`)
             emptyChat.remove();
 
         messageDisplay.innerHTML += `
-            <div>
+            <div 
+                class="
+                    message recieved
+                "
+            >
                 <p>${e.message}</p>
                 <p>${e.sentAt}</p>
             </div>
