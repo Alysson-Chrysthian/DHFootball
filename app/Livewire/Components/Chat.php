@@ -7,6 +7,12 @@ use Livewire\Component;
 class Chat extends Component
 {
     public $role;
+    public $contactId;
+
+    public function sendMessage()
+    {
+        //   
+    }
 
     public function render()
     {

@@ -9,9 +9,11 @@ use Livewire\Component;
 class Conversation extends Component
 {
     public $player;
+    public $contactId;
 
     public function mount($id)
     {
+        $this->contactId = $id;
         $this->player = ScoutPlayer::with('player')
             ->find($id)
             ->player;

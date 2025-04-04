@@ -15,12 +15,15 @@
     </div>
 
     <div>
-        <form class="
-            flex items-end
-            gap-small
-            bg-light
-            w-full
-        ">
+        <form 
+            class="
+                flex items-end
+                gap-small
+                bg-light
+                w-full
+            "
+            wire:submit.prevent="sendMessage"    
+        >
             <x-text-input
                 class="w-full"
                 placeholder="Mensagem..."

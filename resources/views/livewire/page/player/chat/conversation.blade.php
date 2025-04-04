@@ -3,5 +3,8 @@
         role="players"
         :user="$scout"
     />
-    <livewire:components.chat role="players" />
+    <livewire:components.chat   
+        role="players" 
+        :contactId="$contactId"        
+    />
 </div>
