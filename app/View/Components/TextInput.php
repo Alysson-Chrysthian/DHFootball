@@ -13,6 +13,7 @@ class TextInput extends Component
      */
     public function __construct(
         public $label = null,
+        public $showerror = true,
     ) {}
 
     /**

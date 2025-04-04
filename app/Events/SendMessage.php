@@ -14,7 +14,8 @@ class SendMessage implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message, $role, $contactId;
+    public $message, $role;
+    private $contactId;
 
     /**
      * Create a new event instance.
@@ -34,7 +35,7 @@ class SendMessage implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('send.message.' . $this->contactId),
+            new Channel('send.message.' . $this->contactId),
         ];
     }
 

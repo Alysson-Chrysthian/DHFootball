@@ -2,11 +2,14 @@
     @vite('resources/css/pages/chat.css')
 @endPushOnce
 
-<div class="
-    chat
-    flex flex-col
-    p-very-large
-">
+<div
+    class="
+        chat
+        flex flex-col
+        p-very-large
+    "
+    data-contact_id="{{ $contactId }}"
+>
 
     <div class="
         grow overflow-auto
@@ -25,6 +28,8 @@
             wire:submit.prevent="sendMessage"    
         >
             <x-text-input
+                wire:model="message"
+                :showerror="false"
                 class="w-full"
                 placeholder="Mensagem..."
             />
