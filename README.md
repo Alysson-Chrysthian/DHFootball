@@ -3,6 +3,30 @@
 ## Introdução
 DHFootball é um app que busca conectar jogadores de football amadores com clubes de peso, para impulsiona-los em seu inicio de carreira. O jogador ao se cadastrar precisa fazer o upload de um video curto de apresentação, mostrando suas habilidades, os olheiros em sua página inicial podem ver esses videos, filtrando por posição e idade, quando acharem um jogador pelo qual se interesem eles podem seleciona-lo e conversar com o mesmo através da aba de chats.
 
+## Como rodar?
+O DHFootball roda em ambiente docker se utilizando do sail, após clonalo em sua maquina rode o seguinte comando no seu terminal
+
+```ruby
+composer install
+```
+com isso o sail deve ser instalado no vendor da aplicação, para usa-lo digite
+
+```ruby
+vendor/bin/sail up -d --build
+```
+quando a aplicação for buildada, rode as migrations e prepare seu banco de dados com os comandos
+
+```ruby
+vendor/bin/sail artisan migrate
+vendor/bin/sail artisan db:seed
+```
+após isso basta ativar as queues do laravel para que certas funcionalidades possam ser executados da maneira correta, você faz isso rodando
+
+```ruby
+vendor/bin/sail artisan queue:work
+```
+com isso basta configurar o servidor websockets, pra isso sera necessario criar uma aplicação no pusher e adicionar as informações dela no .env da aplicação que deve ser criado com base no .env.example
+
 ## Como funciona?
 ### Functionalidades
 Como explanado no paragrafo anterior o app possui duas visões, uma do player (jogador) e uma pro scout (olheiro). Na visão do player você pode editar seu perfil, fazer upload do seu video, assistir o mesmo, ver os scouts que te selecionaram e conversar com os mesmos, na visão dos scouts você pode ver os videos dos scouts, selecionar os jogadores, conversar com os mesmos, mudar seus status entre "em analise", "selecionado", "não selecionado", e editar seu proprio perfil; alem disso em ambas as visões temos a parte de autenticação com login, cadastro e resete de senha, abaixo segue um diagrama de UseCase que representa as funcionalidades explanadas no paragrafo acima.
